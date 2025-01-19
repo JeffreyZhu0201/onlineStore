@@ -5,10 +5,9 @@
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarTitleText": "OnlineStoreTs",
+    "navigationBarBackgroundColor": "#f6f6ff"
   },
-  "style": "v2",
   "componentFramework": "glass-easel",
   "lazyCodeLoading": "requiredComponents"
 }

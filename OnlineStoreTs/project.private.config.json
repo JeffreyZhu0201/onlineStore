@@ -3,5 +3,6 @@
   "projectname": "OnlineStoreTs",
   "setting": {
     "compileHotReLoad": true
-  }
+  },
+  "libVersion": "trial"
 }

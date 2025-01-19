@@ -1,27 +1,56 @@
+<!--
+ * @Author: Jeffrey Zhu 1624410543@qq.com
+ * @Date: 2025-01-19 14:20:58
+ * @LastEditors: Jeffrey Zhu 1624410543@qq.com
+ * @LastEditTime: 2025-01-19 15:40:00
+ * @FilePath: \OnlineStore\OnlineStoreTs\miniprogram\pages\index\index.wxml
+ * @Description: File Description Here...
+ * 
+ * Copyright (c) 2025 by JeffreyZhu, All Rights Reserved. 
+-->
 <!--index.wxml-->
 <scroll-view class="scrollarea" scroll-y type="list">
   <view class="container">
-    <view class="userinfo">
-      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
-        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-        </button>
-        <view class="nickname-wrapper">
-          <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
-        </view>
-      </block>
-      <block wx:elif="{{!hasUserInfo}}">
-        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
-      </block>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
-    </view>
-    <view class="usermotto">
-      <text class="user-motto">{{motto}}</text>
+    <!-- 搜索栏 -->
+    <van-search
+      value="{{ searchValue }}"
+      placeholder="{{ searchPlaceholder }}"
+      bind:search="onSearch"
+      shape="round"
+      background="#ffffff"
+    />
+
+    <!-- 公告栏 -->
+    <van-notice-bar
+      text="{{ notice }}"
+      left-icon="volume-o"
+      mode="link"
+    />
+
+    <!-- 功能导航 -->
+    <van-grid column-num="4" border="{{ false }}">
+      <van-grid-item
+        wx:for="{{ navItems }}"
+        wx:key="text"
+        icon="{{ item.icon }}"
+        text="{{ item.text }}"
+        bind:tap="onNavItemTap"
+        data-index="{{ index }}"
+      />
+    </van-grid>
+
+    <!-- 商品列表 -->
+    <view class="goods-list">
+      <van-card
+        wx:for="{{ goodsList }}"
+        wx:key="id"
+        price="{{ item.price }}"
+        desc="{{ item.desc }}"
+        title="{{ item.title }}"
+        thumb="{{ item.thumb }}"
+        data-goods-id="{{ item.id }}"
+        bind:tap="onGoodsTap"
+      />
     </view>
   </view>
 </scroll-view>

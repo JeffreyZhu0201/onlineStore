@@ -1,54 +1,76 @@
+/*
+ * @Author: Jeffrey Zhu 1624410543@qq.com
+ * @Date: 2025-01-19 14:20:58
+ * @LastEditors: Jeffrey Zhu 1624410543@qq.com
+ * @LastEditTime: 2025-01-19 15:57:28
+ * @FilePath: \OnlineStoreTs\miniprogram\pages\index\index.ts
+ * @Description: File Description Here...
+ * 
+ * Copyright (c) 2025 by JeffreyZhu, All Rights Reserved. 
+ */
 // index.ts
 // 获取应用实例
 const app = getApp<IAppOption>()
-const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 
 Component({
   data: {
-    motto: 'Hello World',
-    userInfo: {
-      avatarUrl: defaultAvatarUrl,
-      nickName: '',
-    },
-    hasUserInfo: false,
-    canIUseGetUserProfile: wx.canIUse('getUserProfile'),
-    canIUseNicknameComp: wx.canIUse('input.type.nickname'),
+    // 搜索框默认文字
+    searchPlaceholder: '搜索商品',
+    // 店铺公告
+    notice: '欢迎光临本店！新品上市，全场满200减20！',
+    // 功能导航
+    navItems: [
+      { icon: 'new-arrival-o', text: '新品上市' },
+      { icon: 'hot-o', text: '热销商品' },
+      { icon: 'discount', text: '优惠活动' },
+      { icon: 'service-o', text: '联系客服' }
+    ],
+    // 商品列表
+    goodsList: [
+      {
+        id: 1,
+        title: '商品1',
+        price: '99.00',
+        desc: '商品描述1',
+        thumb: 'https://img.yzcdn.cn/vant/ipad.jpeg'
+      },
+      {
+        id: 2,
+        title: '商品2',
+        price: '199.00',
+        desc: '商品描述2',
+        thumb: 'https://img.yzcdn.cn/vant/ipad.jpeg'
+      },
+      {
+        id: 3,
+        title: '商品3',
+        price: '299.00',
+        desc: '商品描述3',
+        thumb: 'https://img.yzcdn.cn/vant/ipad.jpeg'
+      }
+    ]
   },
+
   methods: {
-    // 事件处理函数
-    bindViewTap() {
-      wx.navigateTo({
-        url: '../logs/logs',
-      })
+    // 搜索事件处理
+    onSearch(event: any) {
+      const searchValue = event.detail
+      console.log('搜索内容：', searchValue)
+      // TODO: 实现搜索逻辑
     },
-    onChooseAvatar(e: any) {
-      const { avatarUrl } = e.detail
-      const { nickName } = this.data.userInfo
-      this.setData({
-        "userInfo.avatarUrl": avatarUrl,
-        hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
-      })
+
+    // 导航项点击事件
+    onNavItemTap(event: any) {
+      const { index } = event.currentTarget.dataset
+      console.log('点击导航项：', this.data.navItems[index])
+      // TODO: 实现导航跳转逻辑
     },
-    onInputChange(e: any) {
-      const nickName = e.detail.value
-      const { avatarUrl } = this.data.userInfo
-      this.setData({
-        "userInfo.nickName": nickName,
-        hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
-      })
-    },
-    getUserProfile() {
-      // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-      wx.getUserProfile({
-        desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-        success: (res) => {
-          console.log(res)
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    },
-  },
+
+    // 商品点击事件
+    onGoodsTap(event: any) {
+      const { goodsId } = event.currentTarget.dataset
+      console.log('点击商品：', goodsId)
+      // TODO: 实现商品详情页跳转
+    }
+  }
 })
