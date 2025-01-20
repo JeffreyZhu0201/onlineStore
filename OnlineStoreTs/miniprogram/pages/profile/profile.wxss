@@ -1,0 +1,60 @@
+.container {
+  background-color: #fafafa;
+  min-height: 100vh;
+}
+
+.user-card {
+  margin: 16px;
+  padding: 24px;
+  background: linear-gradient(to right, #4CAF50, #81C784);
+  border-radius: 16px;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.2);
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.info {
+  margin-top: 16px;
+}
+
+.nickname {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.tip {
+  margin-top: 8px;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.menu-card {
+  margin: 16px;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.van-cell {
+  padding: 16px !important;
+}
+
+.van-cell__title {
+  color: #4a4a4a !important;
+  font-size: 15px !important;
+}
+
+.van-cell__value {
+  color: #808080 !important;
+}
+
+.van-cell__right-icon {
+  color: #808080 !important;
+} 

@@ -1,7 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/detail/detail",
+    "pages/cart/cart",
+    "pages/profile/profile",
+    "pages/order/order"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -9,5 +13,7 @@
     "navigationBarBackgroundColor": "#f6f6ff"
   },
   "componentFramework": "glass-easel",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+  }
 }

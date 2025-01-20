@@ -1,0 +1,15 @@
+<view class="container">
+  <van-tabs active="{{ active }}" bind:change="onTabChange">
+    <van-tab title="全部">
+      <block wx:if="{{ isEmpty }}">
+        <van-empty description="暂无订单" />
+      </block>
+      <block wx:else>
+        <!-- TODO: 实现订单列表 -->
+      </block>
+    </van-tab>
+    <van-tab title="待付款" />
+    <van-tab title="待发货" />
+    <van-tab title="待收货" />
+  </van-tabs>
+</view> 

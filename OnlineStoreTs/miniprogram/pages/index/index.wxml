@@ -2,15 +2,31 @@
  * @Author: Jeffrey Zhu 1624410543@qq.com
  * @Date: 2025-01-19 14:20:58
  * @LastEditors: Jeffrey Zhu 1624410543@qq.com
- * @LastEditTime: 2025-01-19 15:40:00
- * @FilePath: \OnlineStore\OnlineStoreTs\miniprogram\pages\index\index.wxml
+ * @LastEditTime: 2025-01-19 16:46:47
+ * @FilePath: \OnlineStoreTs\miniprogram\pages\index\index.wxml
  * @Description: File Description Here...
  * 
  * Copyright (c) 2025 by JeffreyZhu, All Rights Reserved. 
 -->
 <!--index.wxml-->
-<scroll-view class="scrollarea" scroll-y type="list">
+<scroll-view 
+  class="scrollarea" 
+  scroll-y 
+  refresher-enabled
+  refresher-triggered="{{isRefreshing}}"
+  bindrefresherrefresh="onRefresh"
+  bindscrolltolower="onLoadMore"
+>
   <view class="container">
+    <!-- 页面标题 -->
+    <view class="header">
+      <view class="title">{{storeName}}</view>
+      <view class="location">
+        <van-icon name="location-o" />
+        <text>广州市</text>
+      </view>
+    </view>
+
     <!-- 搜索栏 -->
     <van-search
       value="{{ searchValue }}"
@@ -25,10 +41,12 @@
       text="{{ notice }}"
       left-icon="volume-o"
       mode="link"
+      color="#07c160"
+      background="#e8f7e8"
     />
 
     <!-- 功能导航 -->
-    <van-grid column-num="4" border="{{ false }}">
+    <van-grid column-num="4" border="{{ false }}" custom-class="nav-grid">
       <van-grid-item
         wx:for="{{ navItems }}"
         wx:key="text"
@@ -38,6 +56,19 @@
         data-index="{{ index }}"
       />
     </van-grid>
+
+    <!-- 分类标签 -->
+    <view class="category-tabs">
+      <view 
+        wx:for="{{ categories }}" 
+        wx:key="id"
+        class="category-item {{activeCategory === item.id ? 'active' : ''}}"
+        bind:tap="onCategoryChange"
+        data-id="{{ item.id }}"
+      >
+        {{ item.name }}
+      </view>
+    </view>
 
     <!-- 商品列表 -->
     <view class="goods-list">
@@ -50,7 +81,32 @@
         thumb="{{ item.thumb }}"
         data-goods-id="{{ item.id }}"
         bind:tap="onGoodsTap"
-      />
+        custom-class="goods-card"
+      >
+        <view slot="tags" class="goods-tags">
+          <van-tag plain type="danger" wx:if="{{item.isNew}}">新品</van-tag>
+          <van-tag plain type="warning" wx:if="{{item.isHot}}">热销</van-tag>
+        </view>
+        <view slot="footer" class="goods-footer">
+          <van-button size="mini" round type="danger">立即购买</van-button>
+        </view>
+      </van-card>
+    </view>
+
+    <!-- 加载状态 -->
+    <view class="loading-status">
+      <block wx:if="{{ hasMore }}">
+        <van-loading size="24px">加载中...</van-loading>
+      </block>
+      <block wx:else>
+        <view class="no-more">没有更多了</view>
+      </block>
     </view>
   </view>
 </scroll-view>
+<van-tabbar active="{{ active }}" bind:change="onChange">
+    <van-tabbar-item icon="home-o">标签</van-tabbar-item>
+    <van-tabbar-item icon="search">标签</van-tabbar-item>
+    <van-tabbar-item icon="friends-o">标签</van-tabbar-item>
+    <van-tabbar-item icon="setting-o">标签</van-tabbar-item>
+  </van-tabbar>
