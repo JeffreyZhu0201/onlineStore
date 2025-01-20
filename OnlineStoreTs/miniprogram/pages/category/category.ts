@@ -13,7 +13,10 @@ Component({
       { id: 1, name: '全部' },
       { id: 2, name: '面部护理' },
       { id: 3, name: '身体护理' },
-      { id: 4, name: '口腔护理' }
+      { id: 4, name: '口腔护理' },
+      { id: 5, name: '面部护理' },
+      { id: 6, name: '身体护理' },
+      { id: 7, name: '口腔护理' }
     ],
     // 商品列表
     goodsList: [
@@ -33,6 +36,19 @@ Component({
     isRefreshing: false,
     hasMore: true,
     currentPage: 1
+  },
+  lifetimes: {
+    attached() {
+      this.getTabBar().init();
+    }
+  },
+
+  pageLifetimes: {
+    show() {
+      if (typeof this.getTabBar === 'function') {
+        this.getTabBar().init();
+      }
+    }
   },
 
   methods: {

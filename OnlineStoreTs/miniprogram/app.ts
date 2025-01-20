@@ -2,13 +2,18 @@
  * @Author: Jeffrey Zhu 1624410543@qq.com
  * @Date: 2025-01-19 14:20:58
  * @LastEditors: Jeffrey Zhu 1624410543@qq.com
- * @LastEditTime: 2025-01-19 15:52:06
- * @FilePath: \OnlineStore\OnlineStoreTs\miniprogram\app.ts
+ * @LastEditTime: 2025-01-20 16:29:27
+ * @FilePath: \OnlineStoreTs\miniprogram\app.ts
  * @Description: File Description Here...
  * 
  * Copyright (c) 2025 by JeffreyZhu, All Rights Reserved. 
  */
 // app.ts
+interface IAppOption {
+  globalData: object;
+  getTabBar?: () => any;
+}
+
 App<IAppOption>({
   globalData: {},
   onLaunch() {

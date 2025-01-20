@@ -2,7 +2,7 @@
  * @Author: Jeffrey Zhu 1624410543@qq.com
  * @Date: 2025-01-19 14:20:58
  * @LastEditors: Jeffrey Zhu 1624410543@qq.com
- * @LastEditTime: 2025-01-20 12:15:41
+ * @LastEditTime: 2025-01-20 16:30:29
  * @FilePath: \OnlineStoreTs\miniprogram\pages\index\index.ts
  * @Description: File Description Here...
  * 
@@ -67,6 +67,13 @@ Component({
     // 当前页码
     currentPage: 1
   },
+
+  lifetimes: {
+    attached() {
+      this.getTabBar().init();
+    }
+  },
+
   pageLifetimes: {
     show() {
       if (typeof this.getTabBar === 'function') {
@@ -74,6 +81,7 @@ Component({
       }
     }
   },
+
   methods: {
     // 搜索事件处理
     onSearch(event: any) {
