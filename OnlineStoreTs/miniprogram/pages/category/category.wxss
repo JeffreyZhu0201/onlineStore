@@ -19,14 +19,16 @@
 }
 
 .sub-category {
+  display: flex;
+  flex-direction: row;
   width: 100%;
   height: 80rpx;
-  white-space: nowrap;
   background: #fff;
 }
 
 .sub-category-list {
   display: flex;
+  flex-direction: row;
   padding: 0 20rpx;
 }
 
