@@ -2,7 +2,7 @@
  * @Author: Jeffrey Zhu 1624410543@qq.com
  * @Date: 2025-01-20 22:00:35
  * @LastEditors: Jeffrey Zhu 1624410543@qq.com
- * @LastEditTime: 2025-01-20 22:15:22
+ * @LastEditTime: 2025-01-20 22:05:35
  * @FilePath: \OnlineStore\pages\index\index.js
  * @Description: File Description Here...
  * 
@@ -15,18 +15,10 @@ Page({
   data: {
    
   },
-  handleBack() {
-    console.log('go back');
-  },
   onload() {
     // Do something when page load.
-    // app.globalData.userInfo = 'Jeffrey Zhu'
-    // console.log(app.globalData.userInfo)
   },
   onShow() {
     // Do something when page show.
-    const app = getApp()
-    app.globalData.userInfo = 'Jeffrey Zhu'
-    console.log(app.globalData.userInfo)
   },
 })
