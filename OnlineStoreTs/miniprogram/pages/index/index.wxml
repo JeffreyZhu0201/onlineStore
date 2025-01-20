@@ -72,25 +72,7 @@
 
     <!-- 商品列表 -->
     <view class="goods-list">
-      <van-card
-        wx:for="{{ goodsList }}"
-        wx:key="id"
-        price="{{ item.price }}"
-        desc="{{ item.desc }}"
-        title="{{ item.title }}"
-        thumb="{{ item.thumb }}"
-        data-goods-id="{{ item.id }}"
-        bind:tap="onGoodsTap"
-        custom-class="goods-card"
-      >
-        <view slot="tags" class="goods-tags">
-          <van-tag plain type="danger" wx:if="{{item.isNew}}">新品</van-tag>
-          <van-tag plain type="warning" wx:if="{{item.isHot}}">热销</van-tag>
-        </view>
-        <view slot="footer" class="goods-footer">
-          <van-button size="mini" round type="danger">立即购买</van-button>
-        </view>
-      </van-card>
+      
     </view>
 
     <!-- 加载状态 -->
