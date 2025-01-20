@@ -19,6 +19,11 @@ Page({
     // Do something when page load.
   },
   onShow() {
-    // Do something when page show.
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      const page = getCurrentPages().pop();
+      this.getTabBar().setData({
+        value: '/' + page.route
+      })
+    }
   },
 })

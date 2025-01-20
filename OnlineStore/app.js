@@ -1,17 +1,33 @@
 // app.js
 App({
-  onLaunch() {
-    // // 展示本地存储能力
-    // const logs = wx.getStorageSync('logs') || []
-    // logs.unshift(Date.now())
-    // wx.setStorageSync('logs', logs)
-
-    // // 登录
-    // wx.login({
-    //   success: res => {
-    //     // 发送 res.code 到后台换取 openId, sessionKey, unionId
-    //   }
-    // })
+  data:{
+    value: 'label_1',
+    list: [
+      { value: 'label_1', label: '首页', icon: 'home' },
+      { value: 'label_2', label: '应用', icon: 'app' },
+      { value: 'label_3', label: '聊天', icon: 'chat' },
+      { value: 'label_4', label: '我的', icon: 'user' },
+    ],
+  },
+  methods:{
+    onChange(e) {
+      this.setData({
+        value: e.detail.value,
+      });
+      console.log("switch to"+e.detail.value,)
+      wx.switchTab({
+        url: '/pages/logs/logs'
+      })
+    },
+  },
+  onChange(e) {
+    this.setData({
+      value: e.detail.value,
+    });
+    console.log("switch to"+e.detail.value,)
+    wx.switchTab({
+      url: '/pages/logs/logs'
+    })
   },
   globalData: {
     userInfo: null

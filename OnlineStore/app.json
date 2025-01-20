@@ -2,7 +2,9 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/category/category",
+    "pages/cart/cart",
+    "pages/profile/profile"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -12,5 +14,24 @@
   },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "usingComponents": {
+    "t-navbar": "tdesign-miniprogram/navbar/navbar"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/category/category",
+      "text": "分类"
+    },{
+      "pagePath": "pages/cart/cart",
+      "text": "购物车"
+    }, {
+      "pagePath": "pages/profile/profile",
+      "text": "我的"
+    }]
+  }
 }

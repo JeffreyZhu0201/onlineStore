@@ -1,6 +1,14 @@
 /**index.wxss**/
-.container{
-  margin: 0;
-  background: #001200;
-  height: 200px;
+
+.indexNavBar{
+  --td-navbar-color: #fff;
+  --td-navbar-bg-color: #1c3f79;
 }
+
+.indexMain{
+  margin: 0;
+  background: #b0e4b0;
+}
+
+
+
