@@ -5,7 +5,8 @@
     "pages/detail/detail",
     "pages/cart/cart",
     "pages/profile/profile",
-    "pages/order/order"
+    "pages/order/order",
+    "pages/category/category"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -15,5 +16,28 @@
   "componentFramework": "glass-easel",
   "lazyCodeLoading": "requiredComponents",
   "usingComponents": {
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
+  },
+  "tabBar": {
+    "custom": true,
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/cart/cart", 
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的"
+      }
+    ]
   }
 }

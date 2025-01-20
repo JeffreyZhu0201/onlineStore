@@ -1,10 +1,6 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/cart/cart",
-    "pages/order/order",
-    "pages/profile/profile",
-    "pages/category/category"
+    "pages/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -12,6 +8,9 @@
     "navigationBarTitleText": "优品商城",
     "navigationBarTextStyle": "black"
   },
-  "usingComponents": {},
+  "usingComponents": {
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index"
+  },
   "sitemapLocation": "sitemap.json"
-} 
+}

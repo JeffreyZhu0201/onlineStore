@@ -104,7 +104,7 @@ Component({
       }
       
       // 模拟加载数据
-      const newGoods = [/* ... 新商品数据 ... */];
+      const newGoods: never[] = [/* ... 新商品数据 ... */];
       
       this.setData({
         goodsList: [...this.data.goodsList, ...newGoods],

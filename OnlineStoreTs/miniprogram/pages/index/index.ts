@@ -67,6 +67,13 @@ Component({
     // 当前页码
     currentPage: 1
   },
+  pageLifetimes: {
+    show() {
+      if (typeof this.getTabBar === 'function') {
+        this.getTabBar().init();
+      }
+    }
+  },
   methods: {
     // 搜索事件处理
     onSearch(event: any) {
