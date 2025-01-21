@@ -3,27 +3,8 @@
     title="商城首页" t-class-title="nav-title" />
 </view>
 
-<scroll-view class="indexMain">
-
-  <!-- <view class="header">
-    <view class="title">
-      <text>在线订货小程序</text>
-    </view>
-    <view class="location">
-      <t-icon name="location" style="margin: 0 1px;"></t-icon>
-      <text>珠海</text>
-    </view>
-	</view> -->
-
-  <!-- 商品搜索页 -->
-  <!-- <view class="search">
-		<searchGoods/>
-	</view> -->
-
+<scroll-view class="indexMain" enable-flex>
   <!-- 轮播图 -->
-  <!-- <view class="intro">
-		
-	</view> -->
   <swiperCard></swiperCard>
   
   <!-- 促销活动 -->
@@ -40,5 +21,10 @@
   <!-- 商品分类 -->
   <gridCategory></gridCategory>
 
+  <view class="goodPreview">
+    <goodCard></goodCard>
+    <goodCard></goodCard>
+    <goodCard></goodCard>
+  </view>
 
 </scroll-view>

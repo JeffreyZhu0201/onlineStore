@@ -5,6 +5,11 @@
     "searchGoods": "/components/searchGoods/searchGoods",
     "swiperCard": "/components/swiperCard/swiperCard",
     "navBtn":"/components/navBtn/navBtn",
-    "gridCategory":"/components/gridCategory/gridCategory"
+    "gridCategory":"/components/gridCategory/gridCategory",
+    "goodCard":"/components/goodCard/goodCard"
+  },
+  "window": {
+    "enablePullDownRefresh": true
   }
+
 }
