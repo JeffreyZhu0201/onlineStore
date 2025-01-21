@@ -1,0 +1,20 @@
+
+.container{
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    background-color: #ce5d5d24;
+    
+    width: 340rpx;
+    height: 160rpx;
+
+    padding: 36rpx;
+    align-items: center;
+    text-align: center;
+    justify-content:space-around;
+
+    font-size: larger;
+    font-weight: bold;
+    border-radius: 20rpx;
+    border: 1px solid #ce5d5d;
+}

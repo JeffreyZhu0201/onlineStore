@@ -1,0 +1,4 @@
+<view class="container">
+    <t-icon size="64rpx" name="{{icon}}"></t-icon>
+    <text>{{ btnTitle }}</text>
+</view>

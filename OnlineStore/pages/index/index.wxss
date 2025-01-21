@@ -7,39 +7,42 @@
 
 .indexMain{
   box-sizing: border-box;
-  position:relative;
   margin: 0;
   display: flex;
   flex-direction: column;
   
-  padding: 10rpx 10rpx 10rpx 10rpx;
-  background: #b0e4b0;
+  /* padding: 10rpx 10rpx 10rpx 10rpx; */
+  
 }
 
-.header{
-  display: flex;
-  justify-content: space-between;
-  background: #1c3f79;
-  color: #fff;
-  padding: 72rpx 64rpx 72rpx 20rpx;
-  text-align: center;
-  border-radius:30rpx;
-  text-align: center;
-  align-items: center;
+
+.intro{
+  background: #fff;
+  border-radius: 20rpx;
+  max-width: 100%;
+  height: auto;
 }
 
-.title{
-  font-size: 48rpx;
-  font-weight: bold;
-}
-
-.location{
-  font-size: 24rpx;
-  font-weight: bold;
+.notice{
+  
+  margin-top: 20rpx;
   display: flex;
   flex-direction: row;
-  text-align: center;
   align-items: center;
-  font-size:medium;
-  font-weight: normal;
+  padding: 20rpx;
+  color: #9e0505;
+  border-bottom: 1px solid #f0f0f0;
+  background-color: rgba(222, 206, 63, 0.571);
+}
+
+.noticeTitle{
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-left: 20rpx;
+}
+.navBtnContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20rpx;
 }

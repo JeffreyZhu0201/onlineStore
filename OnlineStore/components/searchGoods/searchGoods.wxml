@@ -1,3 +1,3 @@
 <view class="example-search">
-  <t-search placeholder="输入tdesign，有预览结果" resultList="{{resultList}}" bind:change="onChangeValue" />
+  <t-search placeholder="搜索商品" resultList="{{resultList}}" bind:change="onChangeValue" />
 </view>
