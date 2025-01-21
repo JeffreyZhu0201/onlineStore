@@ -1,9 +1,9 @@
 /**index.wxss**/
 
-.indexNavBar{
+/* .indexNavBar{
   --td-navbar-color: #fff;
   --td-navbar-bg-color: #1c3f79;
-}
+} */
 
 .indexMain{
   margin: 0;

@@ -1,15 +1,19 @@
-
 <view class="block">
-  <t-navbar
-    t-class-placeholder="t-navbar-placeholder"
-    t-class-content="t-navbar-content"
-    class="indexNavBar"
-    t-class-title="nav-title"
-  />
+	<t-navbar
+	 t-class-placeholder="t-navbar-placeholder"
+	 t-class-content="t-navbar-content"
+	 class="indexNavBar"
+	 title="宁一生物科技有限公司"
+	 t-class-title="nav-title"
+	/>
 </view>
 
 <scroll-view class="indexMain">
-  <view class="intro">
-    <text>OnlineStore</text>
-  </view>
+	<view class="search">
+		<searchGoods ></searchGoods>
+	</view>
+	<view class="intro">
+		<text>OnlineStore</text>
+	</view>
 </scroll-view>
+
