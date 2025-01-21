@@ -1,30 +1,34 @@
 <view class="block">
-  <t-navbar t-class-placeholder="t-navbar-placeholder" t-class-content="t-navbar-content" class="indexNavBar"
-    title="商城首页" t-class-title="nav-title" />
+	<t-navbar
+	 t-class-placeholder="t-navbar-placeholder"
+	 t-class-content="t-navbar-content"
+	 class="indexNavBar"
+	 title="商城首页"
+	 t-class-title="nav-title"
+	/>
 </view>
 
 <scroll-view class="indexMain" enable-flex>
-  <!-- 轮播图 -->
-  <swiperCard></swiperCard>
-  
-  <!-- 促销活动 -->
-  <view class="notice">
-    <t-icon name="notification"></t-icon>
-    <text class="noticeTitle">最新促销活动</text>
-  </view>
-  
-  <view class="navBtnContainer">
-    <navBtn btnTitle="在线订货" icon="home"></navBtn>
-    <navBtn btnTitle="我的订单" icon="ticket"></navBtn>
-  </view>
-  
-  <!-- 商品分类 -->
-  <gridCategory></gridCategory>
+	<!-- 轮播图 -->
+	<swiperCard/>
 
-  <view class="goodPreview">
-    <goodCard></goodCard>
-    <goodCard></goodCard>
-    <goodCard></goodCard>
-  </view>
+	<!-- 促销活动 -->
+	<view class="notice">
+		<t-icon name="notification" />
+		<text class="noticeTitle">最新促销活动</text>
+	</view>
+
+	<view class="navBtnContainer">
+		<navBtn btnTitle="在线订货" icon="home" />
+		<navBtn btnTitle="我的订单" icon="ticket" />
+	</view>
+
+	<!-- 商品分类 -->
+	<gridCategory/>
+
+		<goodCard/>
+		<goodCard/>
+		<goodCard/>
 
 </scroll-view>
+

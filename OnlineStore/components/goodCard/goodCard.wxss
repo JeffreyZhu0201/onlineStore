@@ -1,17 +1,16 @@
 .good-card {
+  box-sizing: border-box;
   display: flex;
   margin: 20rpx;
   background: #fff;
   border-radius: 16rpx;
   box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.08);
-  overflow: hidden;
   transition: transform 0.2s ease;
 }
 
 .good-card__img {
   width: 240rpx;
   height: 240rpx;
-  position: relative;
   overflow: hidden;
 }
 
@@ -43,7 +42,6 @@
   margin-bottom: 16rpx;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
   overflow: hidden;
 }
 
