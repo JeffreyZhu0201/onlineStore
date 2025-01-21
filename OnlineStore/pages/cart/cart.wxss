@@ -8,3 +8,10 @@ page {
   flex: 1;
   overflow-y: hidden;
 }
+
+.van-submit-bar{
+  position: fixed;
+  height: calc(300rpx + env(safe-area-inset-bottom) / 2) !important;
+}
+
+

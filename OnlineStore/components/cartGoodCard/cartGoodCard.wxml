@@ -1,0 +1,17 @@
+<!--components/cartGoodCard/cartGoodCard.wxml-->
+<view class="good-card" bind:tap="goodDetail">
+    <view class="good-card__img">
+        <image src="{{good.value.image}}" mode="aspectFill" />
+    </view>
+    <view class="good-card__info">
+        <view class="good-card__info__title">{{good.value.title}}</view>
+        <view class="good-card__info__intro">{{good.value.intro}}</view>
+        <view class="good-card__info__price">¥{{good.value.price}}</view>
+    </view>
+    <view class="good-card__btn">
+        <view class="good-card__btn__num" wx:if="{{good.value.count > 0}}">x{{good.value.count}}</view>
+        <button class="good-card__btn__add" hover-class="none" bindtap="addCart">
+            <t-icon name="add" size="16" color="#fff" />
+        </button>
+    </view>
+</view>

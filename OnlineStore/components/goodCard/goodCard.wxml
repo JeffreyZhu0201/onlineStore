@@ -10,7 +10,7 @@
     </view>
     <view class="good-card__btn">
         <button class="good-card__btn__add" hover-class="none" bindtap="addCart">
-            <t-icon name="cart-add" />
+            <t-icon name="cart-add" color="#fff"/>
         </button>
     </view>
 </view>

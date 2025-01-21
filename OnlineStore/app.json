@@ -10,7 +10,8 @@
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "Weixin",
     "navigationStyle": "custom",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarBackgroundColor": "#ffffff",
+    "enablePullDownRefresh": true
   },
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
@@ -24,7 +25,9 @@
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
     "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav",
     "t-row": "tdesign-miniprogram/row/row",
-    "t-col": "tdesign-miniprogram/col/col"
+    "t-col": "tdesign-miniprogram/col/col",
+    "van-submit-bar": "@vant/weapp/submit-bar/index"
+    
   },
   "tabBar": {
     "custom": true,

@@ -8,7 +8,7 @@
 	/>
 </view>
 <scroll-view class="indexMain" enable-flex>
-  <searchGoods></searchGoods>
+	<searchGoods/>
 	<!-- 轮播图 -->
 	<swiperCard/>
 
@@ -26,9 +26,9 @@
 	<!-- 商品分类 -->
 	<gridCategory/>
 
-		<goodCard/>
-		<goodCard/>
-		<goodCard/>
-
+	<goodCard/>
+	<goodCard/>
+	<goodCard/>
+	<view style="width: 100%;height: calc(150rpx + env(safe-area-inset-bottom) / 2);" />
 </scroll-view>
 

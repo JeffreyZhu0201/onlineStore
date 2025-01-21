@@ -2,8 +2,8 @@
  * @Author: Jeffrey Zhu 1624410543@qq.com
  * @Date: 2025-01-20 22:00:35
  * @LastEditors: Jeffrey Zhu 1624410543@qq.com
- * @LastEditTime: 2025-01-20 22:05:35
- * @FilePath: \OnlineStore\pages\index\index.js
+ * @LastEditTime: 2025-01-21 22:15:15
+ * @FilePath: \OnlineStore\pages\cart\cart.js
  * @Description: File Description Here...
  * 
  * Copyright (c) 2025 by JeffreyZhu, All Rights Reserved. 
@@ -13,7 +13,17 @@ const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia0
 
 Page({
   data: {
-   
+    good:{
+      type:Object,
+      value:{
+        id:0,
+        title:"商品名称1",
+        intro:"商品简介1",
+        price:0,
+        count:1,
+        image:"https://tdesign.gtimg.com/mobile/demos/swiper1.png"
+      }
+    }
   },
   onload() {
     // Do something when page load.
@@ -26,4 +36,9 @@ Page({
       })
     }
   },
+  onSubmit(){
+    wx.navigateTo({
+      url: '/pages/order/order',
+    })
+  }
 })

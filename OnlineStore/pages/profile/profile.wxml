@@ -14,3 +14,4 @@
     <text>I'm profile</text>
   </view>
 </scroll-view>
+<view style="width: 100%;height: calc(150rpx + env(safe-area-inset-bottom) / 2);"></view>

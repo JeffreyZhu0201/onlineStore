@@ -10,7 +10,7 @@
 	/>
 </view>
 
-<view class="scrollarea">
+<view>
 
 	<searchGoods/>
 
@@ -43,5 +43,6 @@
 			</scroll-view>
 		</view>
 	</view>
+	<view style="width: 100%;height: calc(150rpx + env(safe-area-inset-bottom) / 2);"></view>
 </view>
 
