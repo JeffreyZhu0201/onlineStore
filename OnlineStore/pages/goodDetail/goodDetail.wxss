@@ -1,1 +1,25 @@
 /* pages/goodDetail/goodDetail.wxss */
+.block {
+  color: var(--td-text-color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.block--bottom {
+  width: 100vw;
+  height: 240px;
+}
+
+.block--center {
+  width: 240px;
+  height: 240px;
+}
+
+.wrapper {
+  margin-bottom: 32rpx;
+}
+
+.wrapper:last-child {
+  margin-bottom: 0;
+}

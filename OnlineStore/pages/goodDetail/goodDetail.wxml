@@ -1,2 +1,48 @@
 <!--pages/goodDetail/goodDetail.wxml-->
-<text>pages/goodDetail/goodDetail.wxml</text>
+
+<view class="block">
+	<t-navbar
+	 t-class-placeholder="t-navbar-placeholder"
+	 t-class-content="t-navbar-content"
+	 class="indexNavBar"
+	 title="商品详情"
+	 t-class-title="nav-title"
+	 left-arrow
+	 bind:go-back="handleBack"
+	/>
+</view>
+
+<scroll-view class="viewContainer" scroll-y>
+
+	<!-- 轮播图 -->
+	<detailSwiper/>
+	<!-- 价格 -->
+	<view class="price">
+		<text class="priceText">￥{{price}}</text>
+	</view>
+	<!-- 商品名称 -->
+    <view class="goodName">
+        <text class="goodNameText">{{goodName}}</text>
+    </view>
+</scroll-view>
+
+<!-- 弹出层 -->
+<t-popup
+  visible="{{visible}}"
+  usingCustomNavbar
+  bind:visible-change="onVisibleChange"
+  placement="bottom"
+>
+  <view class="block block--bottom">out</view>
+</t-popup>
+
+<van-goods-action>
+  <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
+  <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickIcon" />
+  <van-goods-action-button
+    text="加入购物车"
+    type="warning"
+    bind:click="handlePopup"
+  />
+  <van-goods-action-button text="立即购买" bind:click="onClickButton" />
+</van-goods-action>
