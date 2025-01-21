@@ -4,6 +4,7 @@
   "usingComponents": {
     "searchGoods": "/components/searchGoods/searchGoods",
     "swiperCard": "/components/swiperCard/swiperCard",
-    "navBtn":"/components/navBtn/navBtn"
+    "navBtn":"/components/navBtn/navBtn",
+    "gridCategory":"/components/gridCategory/gridCategory"
   }
 }

@@ -36,7 +36,9 @@
     <navBtn btnTitle="在线订货" icon="home"></navBtn>
     <navBtn btnTitle="我的订单" icon="ticket"></navBtn>
   </view>
+  
   <!-- 商品分类 -->
+  <gridCategory></gridCategory>
 
 
 </scroll-view>
