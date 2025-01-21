@@ -9,8 +9,8 @@
 }
 
 .good-card__img {
-  width: 240rpx;
-  height: 240rpx;
+  width: 180rpx;
+  height: 180rpx;
   overflow: hidden;
 }
 
@@ -23,7 +23,7 @@
 
 .good-card__info {
   flex: 1;
-  padding: 24rpx;
+  padding: 20rpx;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

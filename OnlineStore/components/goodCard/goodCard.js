@@ -40,6 +40,10 @@ Component({
     },
   },
   methods: {
-
+    goodDetail(){
+      wx.navigateTo({
+        url: '/pages/goodDetail/goodDetail',
+      })
+    }
   },
 });

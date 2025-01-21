@@ -1,5 +1,5 @@
 <!-- filepath: /d:/CODE/Github/OnlineStore/OnlineStore/components/goodCard/goodCard.wxml -->
-<view class="good-card">
+<view class="good-card" bind:tap="goodDetail">
     <view class="good-card__img">
         <image src="{{imageUrl}}" mode="aspectFill" />
     </view>

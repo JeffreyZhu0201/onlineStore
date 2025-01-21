@@ -10,24 +10,6 @@ App({
     ],
   },
   methods:{
-    onChange(e) {
-      this.setData({
-        value: e.detail.value,
-      });
-      console.log("switch to"+e.detail.value,)
-      wx.switchTab({
-        url: '/pages/logs/logs'
-      })
-    },
-  },
-  onChange(e) {
-    this.setData({
-      value: e.detail.value,
-    });
-    console.log("switch to"+e.detail.value,)
-    wx.switchTab({
-      url: '/pages/logs/logs'
-    })
   },
   globalData: {
     userInfo: null

@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/category/category",
     "pages/cart/cart",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/goodDetail/goodDetail"
   ],
   "window": {
     "navigationBarTextStyle": "black",
@@ -24,7 +25,7 @@
     "t-swiper": "tdesign-miniprogram/swiper/swiper",
     "t-swiper-nav": "tdesign-miniprogram/swiper-nav/swiper-nav",
     "t-row": "tdesign-miniprogram/row/row",
-  "t-col": "tdesign-miniprogram/col/col"
+    "t-col": "tdesign-miniprogram/col/col"
   },
   "tabBar": {
     "custom": true,

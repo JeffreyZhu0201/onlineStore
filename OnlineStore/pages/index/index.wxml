@@ -7,8 +7,8 @@
 	 t-class-title="nav-title"
 	/>
 </view>
-
 <scroll-view class="indexMain" enable-flex>
+  <searchGoods></searchGoods>
 	<!-- 轮播图 -->
 	<swiperCard/>
 
