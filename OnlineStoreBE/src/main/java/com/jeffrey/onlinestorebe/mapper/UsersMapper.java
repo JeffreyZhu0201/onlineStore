@@ -1,6 +1,7 @@
 package com.jeffrey.onlinestorebe.mapper;
 
 import com.jeffrey.onlinestorebe.entity.userEntity.Users;
+
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -10,5 +11,5 @@ public interface UsersMapper {
     @Select("select id from users where open_id = #{openId}")
     Long getUserByOpenId(String openId);
     // 新增用户 并返回id
-    void insertUsers(Users users);
+    Users insertUsers(Users users);
 }

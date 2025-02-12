@@ -1,4 +1,4 @@
-package com.jeffrey.onlinestorebe.utils;
+package com.jeffrey.onlinestorebe.utils.jwtUtils;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;

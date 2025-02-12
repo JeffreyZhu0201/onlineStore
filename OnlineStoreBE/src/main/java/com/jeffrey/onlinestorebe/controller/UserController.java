@@ -26,4 +26,9 @@ public class UserController {
         log(weChatCodeDTO.getCode());
         return userService.loginWithWeChat(weChatCodeDTO.getCode());
     }
+
+    @PostMapping("/test")
+    public Result<String> test() {
+        return Result.success("test");
+    }
 }

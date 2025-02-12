@@ -7,7 +7,7 @@ import com.jeffrey.onlinestorebe.mapper.UsersMapper;
 import com.jeffrey.onlinestorebe.service.UserService;
 import com.jeffrey.onlinestorebe.staticData.WeChatProperties;
 import com.jeffrey.onlinestorebe.utils.HttpClientUtil;
-import com.jeffrey.onlinestorebe.utils.JwtTokenUtil;
+import com.jeffrey.onlinestorebe.utils.jwtUtils.JwtTokenUtil;
 import com.jeffrey.onlinestorebe.utils.Result;
 import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
@@ -33,9 +33,10 @@ public class UserServiceImpl implements UserService {
         Long userId = usersMapper.getUserByOpenId(openId);
         if (userId == null) {
             Users user = Users.builder().openId("123").createTime(LocalDateTime.now()).build();
-            usersMapper.insertUsers(user);
-            String token = JwtTokenUtil.generateTokenWithUserId(user.getId());
-            return Result.success("登录成功", token);
+            if(usersMapper.insertUsers(user) != null){
+                return Result.success("登录成功", JwtTokenUtil.generateTokenWithUserId(user.getId()));
+            }
+            return Result.failure("登录失败");
         }
         return Result.success("登录成功", JwtTokenUtil.generateTokenWithUserId(userId));
     }
