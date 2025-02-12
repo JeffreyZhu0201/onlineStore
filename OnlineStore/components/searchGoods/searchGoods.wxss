@@ -1,8 +1,0 @@
-.example-search {
-    background-color: var(--bg-color-demo);
-    padding: 24rpx 0;
-  }
-  
-  .example-search:not(:last-child) {
-    margin-bottom: 32rpx;
-  }

@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "cartGoodCard": "/components/cartGoodCard/cartGoodCard",
-    "van-submit-bar": "@vant/weapp/submit-bar/index"
-  }
-}
