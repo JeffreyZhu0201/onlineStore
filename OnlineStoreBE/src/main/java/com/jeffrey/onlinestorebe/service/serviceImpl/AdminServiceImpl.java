@@ -5,7 +5,9 @@ import com.jeffrey.onlinestorebe.mapper.AdminMapper;
 import com.jeffrey.onlinestorebe.service.AdminService;
 import com.jeffrey.onlinestorebe.utils.Result;
 import jakarta.annotation.Resource;
+import org.springframework.stereotype.Service;
 
+@Service
 public class AdminServiceImpl implements AdminService {
     @Resource
     private AdminMapper adminMapper;

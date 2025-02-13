@@ -4,14 +4,11 @@ import com.jeffrey.onlinestorebe.entity.adminEntity.Admin;
 import com.jeffrey.onlinestorebe.service.AdminService;
 import com.jeffrey.onlinestorebe.utils.Result;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/admin")
-public class adminController {
+public class AdminController {
 
     @Resource
     private AdminService adminService;
@@ -31,12 +28,12 @@ public class adminController {
         return adminService.updateAdmin(admin);
     }
 
-    @PostMapping("/getById")
+    @GetMapping("/getById")
     public Result<Admin> getAdminById(@RequestBody Long id){
         return adminService.getAdminById(id);
     }
 
-    @PostMapping("/getByUsername")
+    @GetMapping("/getByUsername")
     public Result<Admin> getAdminByUsername(@RequestBody String username){
         return adminService.getAdminByUsername(username);
     }

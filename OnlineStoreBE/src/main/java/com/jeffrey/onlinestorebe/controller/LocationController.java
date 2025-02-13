@@ -5,6 +5,7 @@ import com.jeffrey.onlinestorebe.entity.locationEntity.Location;
 import com.jeffrey.onlinestorebe.service.LocationService;
 import com.jeffrey.onlinestorebe.utils.Result;
 import jakarta.annotation.Resource;
+import lombok.Getter;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -29,12 +30,12 @@ public class LocationController {
         return locationService.updateLocation(location);
     }
 
-    @PostMapping("/count")
+    @GetMapping("/count")
     public Result<Integer> countLocation(@RequestParam Long id) {
         return locationService.countLocation(id);
     }
 
-    @PostMapping("/getAll")
+    @GetMapping("/getAll")
     public Result getAllLocationByUserId(@RequestParam Long userId) {
         return locationService.getAllLocationByUserId(userId);
     }
