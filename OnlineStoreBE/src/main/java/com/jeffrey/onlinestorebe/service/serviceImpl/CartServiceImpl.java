@@ -16,13 +16,15 @@ public class CartServiceImpl implements CartService {
     private CartMapper cartMapper;
 
     @Override
-    public Result<Boolean> addCart(Cart cart) {
+    public Result<Cart> addCart(Cart cart) {
+        if (!cartMapper.itemExist(cart).isEmpty()) {
+            return addItem(cart);
+        }
         Boolean addRes = cartMapper.addCart(cart);
         if (addRes) {
-            return new Result<Boolean>(200, "Add cart successfully", addRes);
-        } else {
-            return new Result<Boolean>(400, "Add cart failed", null);
+            return new Result<Cart>(200, "Add cart successfully", cart);
         }
+        return new Result<Cart>(400, "Add cart failed", null);
     }
     @Override
     public Result<Cart> deleteCart(Cart cart) {
@@ -44,10 +46,11 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public Result<Cart> addItem(Cart cart) {
-        cart.setNumber(cart.getNumber() + 1);
-        Boolean updateRes = cartMapper.updateCart(cart);
+        Cart existCart = cartMapper.itemExist(cart).get(0);
+        existCart.setNumber(existCart.getNumber() + 1);
+        Boolean updateRes = cartMapper.updateCart(existCart);
         if (updateRes) {
-            return new Result<Cart>(200, "Add item successfully", cart);
+            return new Result<Cart>(200, "Add item successfully", existCart);
         }
         return new Result<Cart>(400, "Add item failed", null);
     }
@@ -56,9 +59,9 @@ public class CartServiceImpl implements CartService {
     public Result<List<Cart>> getCartByUserId(Long userId) {
         List<Cart> cartList = cartMapper.getCartByUserId(userId);
         if (!cartList.isEmpty()) {
-            return new Result<List<Cart>>(200, "Get cart by user id successfully", cartList);
+            return new Result<>(200, "Get cart by user id successfully", cartList);
         }
-        return new Result<List<Cart>>(400, "Get cart by user id failed", null);
+        return new Result<>(400, "Get cart by user id failed", null);
     }
 
     @Override

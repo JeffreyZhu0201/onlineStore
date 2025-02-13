@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/cart")
 public class CartController {
@@ -17,7 +18,7 @@ public class CartController {
     private CartService cartService;
 
     @PostMapping("/add")
-    public Result<Boolean> addCart(@RequestBody Cart cart){
+    public Result<Cart> addCart(@RequestBody Cart cart){
         return cartService.addCart(cart);
     }
 

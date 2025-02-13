@@ -8,11 +8,12 @@ import java.util.List;
 
 @Service
 public interface CartService {
-    Result<Boolean> addCart(Cart cart);
+    Result<Cart> addCart(Cart cart);
 
     Result<Cart> deleteCart(Cart cart);
 
     Result<Cart> updateCart(Cart cart);
+
 
     Result<Cart> addItem(Cart cart);
 

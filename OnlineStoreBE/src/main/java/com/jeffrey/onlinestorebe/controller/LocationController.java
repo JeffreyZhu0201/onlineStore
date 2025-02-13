@@ -8,6 +8,7 @@ import jakarta.annotation.Resource;
 import lombok.Getter;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/location")
 public class LocationController {
@@ -31,8 +32,8 @@ public class LocationController {
     }
 
     @GetMapping("/count")
-    public Result<Integer> countLocation(@RequestParam Long id) {
-        return locationService.countLocation(id);
+    public Result<Integer> countLocation(@RequestParam Long userId) {
+        return locationService.countLocation(userId);
     }
 
     @GetMapping("/getAll")

@@ -15,7 +15,7 @@ public interface LocationService {
 
     Result<Boolean> updateLocation(Location location);
 
-    Result<Integer> countLocation(Long id);
+    Result<Integer> countLocation(Long userId);
 
     Result<List<Location>> getAllLocationByUserId(Long userId);
 }

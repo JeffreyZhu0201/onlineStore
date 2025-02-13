@@ -43,8 +43,8 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public Result<Integer> countLocation(Long id) {
-        Integer countRes = locationMapper.getLocationByIdCount(id);
+    public Result<Integer> countLocation(Long userId) {
+        Integer countRes = locationMapper.getLocationByIdCount(userId);
         if(countRes>0){
             return new Result<Integer>(200,"查询成功",countRes);
         }

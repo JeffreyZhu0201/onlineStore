@@ -14,6 +14,10 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Result<Admin> addAdmin(Admin admin) {
+        if(adminMapper.getAdminByUsername(admin.getUser_name())!=null){
+            return new Result<Admin>(400,"用户名已存在",null);
+        }
+
         Boolean adminRes = adminMapper.insertAdmin(admin);
         if(adminRes){
             return new Result<Admin>(200,"添加成功",admin);

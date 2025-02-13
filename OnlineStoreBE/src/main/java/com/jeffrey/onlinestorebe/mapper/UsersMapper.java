@@ -12,14 +12,14 @@ public interface UsersMapper {
     @Select("select id from users where open_id = #{openId}")
     Long getUserByOpenId(String openId);
     // 新增用户 并返回id
-    Users insertUsers(Users users);
+    Boolean insertUsers(Users users);
 
     // 根据 id 查询用户
     @Select("select * from users where id = #{id}")
     Users getUserById(Long id);
 
     // 根据 id 更新用户信息
-    @Update("update users set username = #{username}, avatar_url = #{avatar_url},phone=#{phone} where id = #{id}")
+    @Update("update users set user_name = #{username}, avatar_url = #{avatar_url},phone=#{phone} where id = #{id}")
     int updateUsers(Users users);
 
     // 根据 id 删除用户

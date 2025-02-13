@@ -8,7 +8,7 @@ import jakarta.annotation.Resource;
 
 public interface AdminService {
 
-    public Result<Admin> addAdmin(Admin admin);
+    Result<Admin> addAdmin(Admin admin);
 
     Result<Boolean> deleteAdmin(Long id);
 

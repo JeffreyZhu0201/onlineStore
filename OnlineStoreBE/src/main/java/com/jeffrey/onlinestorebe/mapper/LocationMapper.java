@@ -16,8 +16,8 @@ public interface LocationMapper {
     @Update("update location set position=#{position},phone=#{phone},name=#{name},user_id=#{user_id} where id=#{id}")
     Boolean updateLocation(Location user);
 
-    @Select("select count(*) from location where id = #{id}")
-    Integer getLocationByIdCount(Long id);
+    @Select("select count(*) from location where user_id = #{userId}")
+    Integer getLocationByIdCount(Long userId);
 
     @Select("select * from location where user_id=#{userId}")
     List<Location> getAllLocationByUserId(Long userId);

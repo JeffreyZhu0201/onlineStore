@@ -7,6 +7,7 @@ import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/admin")
 public class AdminController {
 
