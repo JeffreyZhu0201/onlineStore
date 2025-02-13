@@ -19,7 +19,7 @@ public class AdminController {
     }
 
     @PostMapping("/delete")
-    public Result<Boolean> deleteAdmin(@RequestBody Long id){
+    public Result<Boolean> deleteAdmin(@RequestParam Long id){
         return adminService.deleteAdmin(id);
     }
 
@@ -29,12 +29,12 @@ public class AdminController {
     }
 
     @GetMapping("/getById")
-    public Result<Admin> getAdminById(@RequestBody Long id){
+    public Result<Admin> getAdminById(@RequestParam Long id){
         return adminService.getAdminById(id);
     }
 
     @GetMapping("/getByUsername")
-    public Result<Admin> getAdminByUsername(@RequestBody String username){
+    public Result<Admin> getAdminByUsername(@RequestParam String username){
         return adminService.getAdminByUsername(username);
     }
 }

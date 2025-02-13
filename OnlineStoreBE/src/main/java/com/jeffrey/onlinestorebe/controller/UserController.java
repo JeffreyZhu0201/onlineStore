@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static java.rmi.server.LogStream.log;
-
 @RestController
 @RequiredArgsConstructor
 @Slf4j
@@ -23,7 +21,6 @@ public class UserController {
 
     @PostMapping("/login/wechat")
     public Result<String> loginWithWeChat(@RequestBody WeChatCodeDTO weChatCodeDTO) {
-        log(weChatCodeDTO.getCode());
         return userService.loginWithWeChat(weChatCodeDTO.getCode());
     }
 
