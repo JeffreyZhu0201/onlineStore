@@ -1,6 +1,9 @@
 package com.jeffrey.onlinestorebe.controller;
 
+import com.jeffrey.onlinestorebe.entity.orderEntity.OrderItem;
 import com.jeffrey.onlinestorebe.entity.userEntity.WeChatCodeDTO;
+import com.jeffrey.onlinestorebe.mapper.OderItemMapper;
+import com.jeffrey.onlinestorebe.mapper.OrderMapper;
 import com.jeffrey.onlinestorebe.service.UserService;
 import com.jeffrey.onlinestorebe.utils.Result;
 import jakarta.annotation.Resource;
@@ -16,6 +19,9 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Resource
     private UserService userService;
+    @Resource
+    private OderItemMapper oderItemMapper;
+
 
     @PostMapping("/login/wechat")
     public Result<String> loginWithWeChat(@RequestBody WeChatCodeDTO weChatCodeDTO) {
@@ -23,7 +29,8 @@ public class UserController {
     }
 
     @PostMapping("/test")
-    public Result<String> test() {
+    public Result<String> test(@RequestBody OrderItem oderItem) {
+        System.out.println(oderItemMapper.insertOderItem(oderItem));
         return Result.success("test");
     }
 }

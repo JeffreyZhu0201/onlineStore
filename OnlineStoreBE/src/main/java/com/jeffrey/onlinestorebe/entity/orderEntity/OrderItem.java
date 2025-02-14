@@ -4,15 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-import java.time.LocalDateTime;
-
 @Data
 @AllArgsConstructor
 @Builder
-public class order {
+public class OrderItem {
     Long id;
-    Long paid_user;
-    LocalDateTime paid_time;
-    Float money;
-    Long seller_id;
+    Long order_id;
+    Long item_id;
+    Integer number;
+    Float price;
+    Float prime_cost;
 }
