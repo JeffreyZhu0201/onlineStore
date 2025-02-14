@@ -10,14 +10,13 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class Seller {
-
-    Long id;
-    String openId;
-    String phone;
-    String user_name;
-    String avatar_url;
-    LocalDateTime create_time;
-    Float unpaid;
-    Float paid;
-    String invite_code;
+    private Long id;
+    private String openId;
+    private  String phone;
+    private String user_name;
+    private String avatar_url;
+    private LocalDateTime create_time;
+    private Float unpaid;
+    private Float paid;
+    private String invite_code;
 }

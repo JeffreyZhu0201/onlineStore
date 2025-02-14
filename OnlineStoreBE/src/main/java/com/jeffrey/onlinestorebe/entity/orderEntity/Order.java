@@ -4,12 +4,15 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @Builder
 public class Order {
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     Long user_id;
     LocalDateTime paid_time;

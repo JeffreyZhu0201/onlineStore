@@ -3,10 +3,11 @@ package com.jeffrey.onlinestorebe.entity.userEntity;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 
+@AllArgsConstructor
 @Data
-@Builder
 public class WeChatCodeDTO {
     /**微信token*/
-    public String code;
+    private String code;
 }
