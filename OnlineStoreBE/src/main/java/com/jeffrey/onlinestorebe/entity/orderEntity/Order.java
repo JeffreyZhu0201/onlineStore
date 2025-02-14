@@ -4,22 +4,19 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
-
 import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
 @Builder
 public class Order {
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    Long user_id;
-    LocalDateTime paid_time;
-    Float money;
-    Long seller_id;
-    Float prime_cost;
-    String status;
-    String withdraw_status;
-    Long address_id;
+    private Long id;
+    private Long user_id;
+    private LocalDateTime paid_time;
+    private Float money;
+    private Long seller_id;
+    private Float prime_cost;
+    private String status;
+    private String withdraw_status;
+    private Long address_id;
 }

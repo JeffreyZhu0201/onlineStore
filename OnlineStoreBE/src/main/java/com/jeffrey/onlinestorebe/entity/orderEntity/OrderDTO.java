@@ -14,8 +14,6 @@ import java.util.List;
 public class OrderDTO {
 
     Long user_id;
-    Long item_id;
-    Integer number;
     List<OrderItem> orderItems;
 
 }

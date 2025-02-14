@@ -21,10 +21,10 @@ public interface OrderMapper {
     Order getOrderByOrderId(int orderId);
 
     @Update("UPDATE orders SET status = #{status} WHERE id = #{orderId}")
-    Boolean updateOrderStatus(int orderId, int status);
+    Boolean updateOrderStatus(int orderId, String status);
 
     @Select("SELECT * FROM orders where status=#{status} and user_id=#{userId}")
-    List<Order> getOrdersByStatusAndUserId(int status, int userId);
+    List<Order> getOrdersByStatusAndUserId(String status, Long userId);
 
     @Select("SELECT * FROM orders where status=#{status} and seller_id=#{sellerId} and withdraw_status=#{withdrawStatus}")
     List<Order> getOrdersByStatusAndSellerId(String status, Long sellerId, String withdrawStatus);

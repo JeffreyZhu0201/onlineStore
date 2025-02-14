@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 @Mapper
-public interface OderItemMapper {
+public interface OrderItemMapper {
 
     @Insert("insert into order_item (item_id,order_id,number,prime_cost,price) value(#{item_id},#{order_id},#{number},#{prime_cost},#{price})")
     Boolean insertOderItem(OrderItem oderItem);

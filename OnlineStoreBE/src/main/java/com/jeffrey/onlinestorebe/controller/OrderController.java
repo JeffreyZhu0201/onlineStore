@@ -5,10 +5,9 @@ import com.jeffrey.onlinestorebe.entity.orderEntity.OrderDTO;
 import com.jeffrey.onlinestorebe.service.OrderService;
 import com.jeffrey.onlinestorebe.utils.Result;
 import jakarta.annotation.Resource;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/order")
@@ -22,6 +21,15 @@ public class OrderController {
         return orderService.createOrder(orderDto);
     }
 
+    @GetMapping("/get/by/userid")
+    public Result<List<Order>> getOrderByUserId(@RequestParam("userId") Long userId) {
+        return orderService.getOrderByUserId(userId);
+    }
+
+    @GetMapping("/get/by/statusAndUserId")
+    public Result<List<Order>> getOrderByStatusAndUserId(@RequestParam("status") String status, @RequestParam("userId") Long userId) {
+        return orderService.getOrderByStatusAndUserId(status, userId);
+    }
 
 
 }
