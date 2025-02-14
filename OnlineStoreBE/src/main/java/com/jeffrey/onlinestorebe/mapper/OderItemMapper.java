@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface OderItemMapper {
 
-    @Insert("insert into order_item (item_id,order_id,number,price) value(#{item_id},#{order_id},#{number},#{price})")
+    @Insert("insert into order_item (item_id,order_id,number,prime_cost,price) value(#{item_id},#{order_id},#{number},#{prime_cost},#{price})")
     Boolean insertOderItem(OrderItem oderItem);
 
     @Delete("delete from order_item where id = #{id}")
@@ -16,12 +16,6 @@ public interface OderItemMapper {
 
     @Delete("delete from order_item where order_id = #{order_id}")
     Boolean deleteOderItemByOrderId(Long order_id);
-
-    @Update("update order_item set number = #{number} where id = #{id}")
-    Boolean updateOderItemNumber(Long id, Integer number);
-
-    @Update("update order_item set price = #{price} where id = #{id}")
-    Boolean updateOderItemPrice(Long id, Double price);
 
     @Select("select * from order_item where id = #{id}")
     OrderItem selectOderItemById(Long id);
