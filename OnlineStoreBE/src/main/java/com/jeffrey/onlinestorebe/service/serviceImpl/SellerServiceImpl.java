@@ -2,42 +2,57 @@ package com.jeffrey.onlinestorebe.service.serviceImpl;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.jeffrey.onlinestorebe.entity.sellerEntity.Seller;
 import com.jeffrey.onlinestorebe.entity.userEntity.Users;
+import com.jeffrey.onlinestorebe.mapper.SellerMapper;
 import com.jeffrey.onlinestorebe.mapper.UsersMapper;
+import com.jeffrey.onlinestorebe.service.SellerService;
 import com.jeffrey.onlinestorebe.service.UserService;
 import com.jeffrey.onlinestorebe.staticData.WeChatProperties;
 import com.jeffrey.onlinestorebe.utils.HttpClientUtil;
-import com.jeffrey.onlinestorebe.utils.jwtUtils.JwtTokenUtil;
 import com.jeffrey.onlinestorebe.utils.Result;
+import com.jeffrey.onlinestorebe.utils.jwtUtils.JwtTokenUtil;
 import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
+import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class UserServiceImpl implements UserService {
+public class SellerServiceImpl implements SellerService {
     @Resource
-    private final UsersMapper usersMapper;
+    private final SellerMapper sellerMapper;
 
     @Override
     public Result<String> loginWithWeChat(String code) {
         String openId = getOpenId(code);
         // 查询用户是否已存在
-        Long userId = usersMapper.getUserByOpenId(openId);
-        if (userId == null) {
-            Users user = Users.builder().openId("123").createTime(LocalDateTime.now()).build();
-            if(usersMapper.insertUsers(user) != null){
-                return Result.success("登录成功", JwtTokenUtil.generateTokenWithUserId(user.getId()));
+        Long sellerId = sellerMapper.getSellerByOpenId(openId);
+        if (sellerId == null) {
+            Seller seller = Seller.builder().openId("123").create_time(LocalDateTime.now()).build();
+            if(sellerMapper.insertSeller(seller) != null){
+                return Result.success("登录成功", JwtTokenUtil.generateTokenWithUserId(seller.getId()));
             }
             return Result.failure("登录失败");
         }
-        return Result.success("登录成功", JwtTokenUtil.generateTokenWithUserId(userId));
+        return Result.success("登录成功", JwtTokenUtil.generateTokenWithUserId(sellerId));
     }
+
+    @Override
+    public Result<String> gennerateInviteCode(Long id) {
+        String inviteCode = generateRandomString(8);
+        if (sellerMapper.updateInviteCode(id, inviteCode)) {
+            return Result.success("生成邀请码成功", inviteCode);
+        }
+        return new Result<String>(400,"生成邀请码失败",null);
+    }
+
     public String getOpenId(String code) {
         WeChatProperties weChatProperties = new WeChatProperties();
         // 封装请求参数
@@ -56,4 +71,17 @@ public class UserServiceImpl implements UserService {
         log.info("jsonObject:{}", jsonObject);
         return jsonObject.getString("openid");
     }
+
+
+    public static String generateRandomString(int length) {
+        String CHARACTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        SecureRandom RANDOM = new SecureRandom();
+        StringBuilder sb = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            int index = RANDOM.nextInt(CHARACTERS.length());
+            sb.append(CHARACTERS.charAt(index));
+        }
+        return sb.toString();
+    }
+
 }
