@@ -26,7 +26,7 @@ public interface GoodMapper {
     @Select("select * from goods")
     List<Good> getAllGoods();
 
-    @Select("select * from goods order by Desc LIMIT #{limit} OFFSET #{offset}")
+    @Select("select * from goods order by id Desc LIMIT #{limit} OFFSET #{offset}")
     List<Good> getRangedGoods(int offset, int limit);
 
     @Select("select * from goods where title like #{title}")

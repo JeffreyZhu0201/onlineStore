@@ -47,6 +47,7 @@ public class CartServiceImpl implements CartService {
     @Override
     public Result<Cart> addItem(Cart cart) {
         Cart existCart = cartMapper.itemExist(cart).get(0);
+
         existCart.setNumber(existCart.getNumber() + 1);
         Boolean updateRes = cartMapper.updateCart(existCart);
         if (updateRes) {

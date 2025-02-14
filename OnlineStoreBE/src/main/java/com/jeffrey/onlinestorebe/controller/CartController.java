@@ -32,10 +32,10 @@ public class CartController {
         return cartService.updateCart(cart);
     }
 
-    @PostMapping("/additem")
-    public Result<Cart> addItem(@RequestBody Cart cart){
-        return cartService.addItem(cart);
-    }
+//    @PostMapping("/additem")
+//    public Result<Cart> addItem(@RequestBody Cart cart){
+//        return cartService.addItem(cart);
+//    }
 
     @GetMapping("/getcartbyuserid")
     public Result<List<Cart>> getCartByUserId(@RequestParam("userId") Long userId){

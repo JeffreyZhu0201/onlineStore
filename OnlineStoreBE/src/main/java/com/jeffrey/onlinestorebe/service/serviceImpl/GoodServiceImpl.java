@@ -88,10 +88,16 @@ public class GoodServiceImpl implements GoodService {
 
     @Override
     public Result<List<Good>> getRangedGoods(int offset, int limit) {
-        List<Good> rangedGoods = goodMapper.getRangedGoods(offset, limit);
-        if(!rangedGoods.isEmpty()){
-            return new Result<List<Good>>(200, "获取分页商品成功", rangedGoods);
+        try{
+            List<Good> rangedGoods = goodMapper.getRangedGoods(offset, limit);
+            if(!rangedGoods.isEmpty()){
+                return new Result<List<Good>>(200, "获取分页商品成功", rangedGoods);
+            }
+            return new Result<List<Good>>(400, "获取分页商品失败", null);
         }
-        return new Result<List<Good>>(400, "获取分页商品失败", null);
+        catch (Exception e){
+            return new Result<List<Good>>(400, "获取分页商品失败", null);
+        }
+
     }
 }
