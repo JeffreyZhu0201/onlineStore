@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface OrderMapper {
 
-    @Insert("INSERT INTO `order` (user_id, paid_time, seller_id, prime_cost,money, address_id) values (#{user_id}#{paid_time}, #{seller_id}, #{prime_cost},#{money} ,#{address_id}))")//
+    @Insert("INSERT INTO `order` (id,user_id, paid_time, seller_id, prime_cost,money, address_id) values (#{id},#{user_id},#{paid_time}, #{seller_id}, #{prime_cost},#{money} ,#{address_id})")//
     void insertOrder(Order order);
 
     @Delete("DELETE FROM `order` WHERE id = #{orderId}")

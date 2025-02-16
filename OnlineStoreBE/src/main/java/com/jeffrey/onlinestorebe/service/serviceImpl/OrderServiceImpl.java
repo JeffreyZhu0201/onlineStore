@@ -47,6 +47,7 @@ public class OrderServiceImpl implements OrderService {
                     .build();
             money.updateAndGet(v -> v + orderItem.getPrice() * orderItem.getNumber());
             prime_cost.updateAndGet(v -> v + orderItem.getPrime_cost() * orderItem.getNumber());
+            orderItemMapper.insertOrderItem(newOrderItem);
         });
         order.setMoney(money.get());
         order.setPrime_cost(prime_cost.get());
