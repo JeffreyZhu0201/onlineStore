@@ -10,11 +10,11 @@ import java.util.List;
 public interface GoodService {
     Result<Good> addGood(Good good);
 
-    Result<Good> deleteGood(Long id);
+    Result<Good> deleteGood(String id);
 
     Result<Good> updateGood(Good good);
 
-    Result<Good> getGoodById(Long id);
+    Result<Good> getGoodById(String id);
 
     Result<List<Good>> getGoodByTitle(String title);
 

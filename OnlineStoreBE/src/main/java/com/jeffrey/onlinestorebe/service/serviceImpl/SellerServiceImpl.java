@@ -3,24 +3,21 @@ package com.jeffrey.onlinestorebe.service.serviceImpl;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.jeffrey.onlinestorebe.entity.sellerEntity.Seller;
-import com.jeffrey.onlinestorebe.entity.userEntity.Users;
 import com.jeffrey.onlinestorebe.mapper.SellerMapper;
-import com.jeffrey.onlinestorebe.mapper.UsersMapper;
 import com.jeffrey.onlinestorebe.service.SellerService;
-import com.jeffrey.onlinestorebe.service.UserService;
 import com.jeffrey.onlinestorebe.staticData.WeChatProperties;
 import com.jeffrey.onlinestorebe.utils.HttpClientUtil;
 import com.jeffrey.onlinestorebe.utils.Result;
 import com.jeffrey.onlinestorebe.utils.jwtUtils.JwtTokenUtil;
 import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -33,9 +30,9 @@ public class SellerServiceImpl implements SellerService {
     public Result<String> loginWithWeChat(String code) {
         String openId = getOpenId(code);
         // 查询用户是否已存在
-        Long sellerId = sellerMapper.getSellerByOpenId(openId);
+        String sellerId = sellerMapper.getSellerByOpenId(openId);
         if (sellerId == null) {
-            Seller seller = Seller.builder().openId("123").create_time(LocalDateTime.now()).build();
+            Seller seller = Seller.builder().openId("123").id(UUID.randomUUID().toString()).create_time(LocalDateTime.now()).build();
             if(sellerMapper.insertSeller(seller) != null){
                 return Result.success("登录成功", JwtTokenUtil.generateTokenWithUserId(seller.getId()));
             }
@@ -45,7 +42,7 @@ public class SellerServiceImpl implements SellerService {
     }
 
     @Override
-    public Result<String> gennerateInviteCode(Long id) {
+    public Result<String> gennerateInviteCode(String id) {
         String inviteCode = generateRandomString(8);
         if (sellerMapper.updateInviteCode(id, inviteCode)) {
             return Result.success("生成邀请码成功", inviteCode);

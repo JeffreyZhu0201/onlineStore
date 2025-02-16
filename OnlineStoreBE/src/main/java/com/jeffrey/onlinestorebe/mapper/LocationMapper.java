@@ -11,15 +11,15 @@ public interface LocationMapper {
     Boolean insertLocation(Location location);
 
     @Delete("delete from location where id=#{id}")
-    Boolean deleteLocation(Long id);
+    Boolean deleteLocation(String id);
 
     @Update("update location set position=#{position},phone=#{phone},name=#{name},user_id=#{user_id} where id=#{id}")
     Boolean updateLocation(Location user);
 
     @Select("select count(*) from location where user_id = #{userId}")
-    Integer getLocationByIdCount(Long userId);
+    Integer getLocationByIdCount(String userId);
 
     @Select("select * from location where user_id=#{userId}")
-    List<Location> getAllLocationByUserId(Long userId);
+    List<Location> getAllLocationByUserId(String userId);
 
 }

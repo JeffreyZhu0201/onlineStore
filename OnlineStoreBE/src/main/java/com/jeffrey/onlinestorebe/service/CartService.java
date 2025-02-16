@@ -14,10 +14,9 @@ public interface CartService {
 
     Result<Cart> updateCart(Cart cart);
 
-
     Result<Cart> addItem(Cart cart);
 
-    Result<List<Cart>> getCartByUserId(Long userId);
+    Result<List<Cart>> getCartByUserId(String userId);
 
     Result<Cart> selectItem(Cart cart);
 }

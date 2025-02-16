@@ -38,7 +38,7 @@ public class CartController {
 //    }
 
     @GetMapping("/getcartbyuserid")
-    public Result<List<Cart>> getCartByUserId(@RequestParam("userId") Long userId){
+    public Result<List<Cart>> getCartByUserId(@RequestParam("userId") String userId){
         return cartService.getCartByUserId(userId);
     }
 

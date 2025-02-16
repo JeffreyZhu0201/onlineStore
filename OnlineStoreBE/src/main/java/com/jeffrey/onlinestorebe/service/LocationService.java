@@ -11,11 +11,11 @@ public interface LocationService {
 
     Result<Boolean> addLocation(Location location);
 
-    Result<Boolean> deleteLocation(Long id);
+    Result<Boolean> deleteLocation(String id);
 
     Result<Boolean> updateLocation(Location location);
 
-    Result<Integer> countLocation(Long userId);
+    Result<Integer> countLocation(String userId);
 
-    Result<List<Location>> getAllLocationByUserId(Long userId);
+    Result<List<Location>> getAllLocationByUserId(String userId);
 }

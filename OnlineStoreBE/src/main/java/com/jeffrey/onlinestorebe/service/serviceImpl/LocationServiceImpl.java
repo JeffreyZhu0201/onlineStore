@@ -8,6 +8,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class LocationServiceImpl implements LocationService {
@@ -17,6 +18,7 @@ public class LocationServiceImpl implements LocationService {
 
     @Override
     public Result<Boolean> addLocation(Location location) {
+        location.setId(UUID.randomUUID().toString());
         Boolean locationRes = locationMapper.insertLocation(location);
         if(locationRes){
             return new Result<Boolean>(200,"添加成功",locationRes);
@@ -25,7 +27,7 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public Result<Boolean> deleteLocation(Long id) {
+    public Result<Boolean> deleteLocation(String id) {
         Boolean deleteRes = locationMapper.deleteLocation(id);
         if(deleteRes){
             return new Result<Boolean>(200,"删除成功",deleteRes);
@@ -43,7 +45,7 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public Result<Integer> countLocation(Long userId) {
+    public Result<Integer> countLocation(String userId) {
         Integer countRes = locationMapper.getLocationByIdCount(userId);
         if(countRes>0){
             return new Result<Integer>(200,"查询成功",countRes);
@@ -52,7 +54,7 @@ public class LocationServiceImpl implements LocationService {
     }
 
     @Override
-    public Result<List<Location>> getAllLocationByUserId(Long userId) {
+    public Result<List<Location>> getAllLocationByUserId(String userId) {
         List<Location> locationList = locationMapper.getAllLocationByUserId(userId);
         if(!locationList.isEmpty()){
             return new Result<List<Location>>(200,"查询成功",locationList);

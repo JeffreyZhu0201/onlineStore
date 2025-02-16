@@ -8,6 +8,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class CartServiceImpl implements CartService {
@@ -20,6 +21,7 @@ public class CartServiceImpl implements CartService {
         if (!cartMapper.itemExist(cart).isEmpty()) {
             return addItem(cart);
         }
+        cart.setId(UUID.randomUUID().toString());
         Boolean addRes = cartMapper.addCart(cart);
         if (addRes) {
             return new Result<Cart>(200, "Add cart successfully", cart);
@@ -57,7 +59,7 @@ public class CartServiceImpl implements CartService {
     }
 
     @Override
-    public Result<List<Cart>> getCartByUserId(Long userId) {
+    public Result<List<Cart>> getCartByUserId(String userId) {
         List<Cart> cartList = cartMapper.getCartByUserId(userId);
         if (!cartList.isEmpty()) {
             return new Result<>(200, "Get cart by user id successfully", cartList);

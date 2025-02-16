@@ -20,7 +20,7 @@ public class SellerController {
     }
 
     @PostMapping("/gennerate/invitecode")
-    public Result<String> gennerateInviteCode(@RequestParam("id") Long id) {
+    public Result<String> gennerateInviteCode(@RequestParam("id") String id) {
         return sellerService.gennerateInviteCode(id);
     }
 

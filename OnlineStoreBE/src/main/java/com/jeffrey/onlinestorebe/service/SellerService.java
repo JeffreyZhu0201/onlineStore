@@ -7,5 +7,6 @@ import org.springframework.stereotype.Service;
 public interface SellerService {
     Result<String> loginWithWeChat(String code);
 
-    Result<String> gennerateInviteCode(Long id);
+    Result<String> gennerateInviteCode(String id);
+
 }

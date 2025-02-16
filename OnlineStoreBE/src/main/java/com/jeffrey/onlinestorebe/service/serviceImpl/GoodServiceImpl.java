@@ -8,6 +8,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class GoodServiceImpl implements GoodService {
@@ -21,6 +22,7 @@ public class GoodServiceImpl implements GoodService {
         if (!goodMapper.getGoodByTitle(good.getTitle()).isEmpty()) {
             return new Result<>(400, "商品已存在", null);
         }
+        good.setId(UUID.randomUUID().toString());
         Boolean goodRes = goodMapper.addGood(good);
         if(goodRes) {
             return new Result<>(200, "商品增加成功", goodMapper.getGoodByTitle(good.getTitle()).get(0));
@@ -29,7 +31,7 @@ public class GoodServiceImpl implements GoodService {
     }
 
     @Override
-    public Result<Good> deleteGood(Long id) {
+    public Result<Good> deleteGood(String id) {
         Good deleteGood = goodMapper.getGoodById(id);
         Boolean goodRes = goodMapper.deleteGood(id);
         if(goodRes) {
@@ -51,7 +53,7 @@ public class GoodServiceImpl implements GoodService {
     }
 
     @Override
-    public Result<Good> getGoodById(Long id) {
+    public Result<Good> getGoodById(String id) {
         Good goodRes = goodMapper.getGoodById(id);
         if(goodRes != null) {
             return new Result<>(200, "商品获取成功", goodRes);

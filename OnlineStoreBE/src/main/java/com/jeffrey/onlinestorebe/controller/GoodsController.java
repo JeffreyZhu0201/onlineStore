@@ -22,7 +22,7 @@ public class GoodsController {
     }
 
     @PostMapping("/delete")
-    public Result<Good> deleteGood(@RequestParam("id") Long id){
+    public Result<Good> deleteGood(@RequestParam("id") String id){
         return goodService.deleteGood(id);
     }
 
@@ -32,7 +32,7 @@ public class GoodsController {
     }
 
     @GetMapping("/getById")
-    public Result<Good> getGoodById(@RequestParam("id") Long id){
+    public Result<Good> getGoodById(@RequestParam("id") String id){
         return goodService.getGoodById(id);
     }
 

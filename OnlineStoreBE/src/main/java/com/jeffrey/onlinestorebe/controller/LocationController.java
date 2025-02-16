@@ -22,7 +22,7 @@ public class LocationController {
     }
 
     @PostMapping("/delete")
-    public Result<Boolean> deleteLocation(@RequestParam Long id){
+    public Result<Boolean> deleteLocation(@RequestParam String id){
         return locationService.deleteLocation(id);
     }
 
@@ -32,12 +32,12 @@ public class LocationController {
     }
 
     @GetMapping("/count")
-    public Result<Integer> countLocation(@RequestParam Long userId) {
+    public Result<Integer> countLocation(@RequestParam String userId) {
         return locationService.countLocation(userId);
     }
 
     @GetMapping("/getAll")
-    public Result getAllLocationByUserId(@RequestParam Long userId) {
+    public Result getAllLocationByUserId(@RequestParam String userId) {
         return locationService.getAllLocationByUserId(userId);
     }
 
