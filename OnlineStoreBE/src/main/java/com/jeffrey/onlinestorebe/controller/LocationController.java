@@ -8,6 +8,8 @@ import jakarta.annotation.Resource;
 import lombok.Getter;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping("/location")
@@ -37,7 +39,7 @@ public class LocationController {
     }
 
     @GetMapping("/getAll")
-    public Result getAllLocationByUserId(@RequestParam String userId) {
+    public Result<List<Location>> getAllLocationByUserId(@RequestParam String userId) {
         return locationService.getAllLocationByUserId(userId);
     }
 
