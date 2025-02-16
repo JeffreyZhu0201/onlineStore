@@ -5,7 +5,6 @@ import com.jeffrey.onlinestorebe.entity.locationEntity.Location;
 import com.jeffrey.onlinestorebe.service.LocationService;
 import com.jeffrey.onlinestorebe.utils.Result;
 import jakarta.annotation.Resource;
-import lombok.Getter;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
