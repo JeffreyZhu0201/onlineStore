@@ -12,15 +12,15 @@ public interface OrderItemMapper {
     Boolean insertOderItem(OrderItem oderItem);
 
     @Delete("delete from order_item where id = #{id}")
-    Boolean deleteOderItem(Long id);
+    Boolean deleteOderItem(String id);
 
     @Delete("delete from order_item where order_id = #{order_id}")
-    Boolean deleteOderItemByOrderId(Long order_id);
+    Boolean deleteOderItemByOrderId(String order_id);
 
     @Select("select * from order_item where id = #{id}")
-    OrderItem selectOderItemById(Long id);
+    OrderItem selectOderItemById(String id);
 
     @Select("select * from order_item where order_id = #{order_id}")
-    List<OrderItem> selectOderItemByOrderId(Long order_id);
+    List<OrderItem> selectOderItemByOrderId(String order_id);
 
 }
