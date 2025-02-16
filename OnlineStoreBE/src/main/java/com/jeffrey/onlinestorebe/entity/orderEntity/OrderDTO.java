@@ -13,7 +13,8 @@ import java.util.List;
 @AllArgsConstructor
 public class OrderDTO {
 
-    Long user_id;
+    String user_id;
+    String address_id;
     List<OrderItem> orderItems;
-
+    String seller_id;
 }

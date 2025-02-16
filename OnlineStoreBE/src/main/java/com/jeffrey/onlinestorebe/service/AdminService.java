@@ -10,11 +10,11 @@ public interface AdminService {
 
     Result<Admin> addAdmin(Admin admin);
 
-    Result<Boolean> deleteAdmin(Long id);
+    Result<Boolean> deleteAdmin(String id);
 
     Result<Admin> updateAdmin(Admin admin);
 
-    Result<Admin> getAdminById(Long id);
+    Result<Admin> getAdminById(String id);
 
     Result<Admin> getAdminByUsername(String username);
 }

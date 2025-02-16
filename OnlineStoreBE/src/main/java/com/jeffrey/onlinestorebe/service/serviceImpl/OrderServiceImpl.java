@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicReference;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -25,20 +27,34 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public Result<Order> createOrder(OrderDTO orderDto) {
 
-//        orderDto.getOrderItems().forEach(orderItem -> {
-//            OrderItem newOrderItem = orderItem.builder()
-//                    .user_id(orderDto.getUser_id())
-//                    .paid_time(LocalDateTime.now())
-//                    .prime_cost(orderDto.getPrime_cost())
-//                    .status(orderDto.getStatus())
-//                    .withdraw_status(orderDto.getWithdraw_status())
-//                    .address_id(orderDto.getAddress_id())
-//                    .build();
-//        });
-
+        Order order = Order.builder()
+                .id(String.valueOf(UUID.randomUUID()))
+                .user_id(orderDto.getUser_id())
+                .paid_time(LocalDateTime.now())
+                .address_id(orderDto.getAddress_id())
+                .seller_id(orderDto.getSeller_id())
+                .build();
+        AtomicReference<Float> money = new AtomicReference<>(0f);
+        AtomicReference<Float> prime_cost = new AtomicReference<>(0f);
+        orderDto.getOrderItems().forEach(orderItem -> {
+            OrderItem newOrderItem = OrderItem.builder()
+                    .id(String.valueOf(UUID.randomUUID()))
+                    .order_id(order.getId())
+                    .item_id(orderItem.getItem_id())
+                    .number(orderItem.getNumber())
+                    .price(orderItem.getPrice())
+                    .prime_cost(orderItem.getPrime_cost())
+                    .build();
+            money.updateAndGet(v -> v + orderItem.getPrice() * orderItem.getNumber());
+            prime_cost.updateAndGet(v -> v + orderItem.getPrime_cost() * orderItem.getNumber());
+        });
+        order.setMoney(money.get());
+        order.setPrime_cost(prime_cost.get());
+        System.out.println(order);
+        orderMapper.insertOrder(order);
 
 //        System.out.println(order);
-        return new Result<Order>(200,"123",null);
+        return new Result<Order>(200,"123",order);
     }
 
     @Override

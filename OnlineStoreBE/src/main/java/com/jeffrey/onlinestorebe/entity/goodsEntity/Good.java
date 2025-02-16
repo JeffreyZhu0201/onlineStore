@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class Good {
-    Long id;
+    String id;
     String title;
     double price;
     String content;

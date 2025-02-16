@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.HashMap;
+import java.util.UUID;
 
 @Service
 @Slf4j
@@ -28,9 +29,9 @@ public class UserServiceImpl implements UserService {
     public Result<String> loginWithWeChat(String code) {
         String openId = getOpenId(code);
         // 查询用户是否已存在
-        Long userId = usersMapper.getUserByOpenId(openId);
+        String userId = usersMapper.getUserByOpenId(openId);
         if (userId == null) {
-            Users user = Users.builder().openId("123").createTime(LocalDateTime.now()).build();
+            Users user = Users.builder().openId("123").id(UUID.randomUUID().toString()).createTime(LocalDateTime.now()).build();
             if(usersMapper.insertUsers(user) != null){
                 return Result.success("登录成功", JwtTokenUtil.generateTokenWithUserId(user.getId()));
             }

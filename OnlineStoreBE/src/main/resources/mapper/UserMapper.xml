@@ -3,8 +3,8 @@
 <mapper namespace="com.jeffrey.onlinestorebe.mapper.UsersMapper">
 
     <insert id="insertUsers" useGeneratedKeys="true" keyProperty="id" parameterType="com.jeffrey.onlinestorebe.entity.userEntity.Users">
-        insert into users (open_id, create_time)
-        values ( #{openId}, #{createTime})
+        insert into users (id,open_id, create_time)
+        values (#{id}, #{openId}, #{createTime})
     </insert>
 
 </mapper>

@@ -16,7 +16,7 @@ public class JwtTokenUtil {
      * @param userId
      * @return
      */
-    public static String generateTokenWithUserId(Long userId) {
+    public static String generateTokenWithUserId(String userId) {
         return JWT.create().withClaim("userId", userId).withExpiresAt(new Date(EXPIRATION_TIME)).sign(Algorithm.HMAC256(SECRET_KEY));
     }
     /**

@@ -8,9 +8,9 @@ import lombok.Data;
 @AllArgsConstructor
 @Builder
 public class OrderItem {
-    Long id;
-    Long order_id;
-    Long item_id;
+    String id;
+    String order_id;
+    String item_id;
     Integer number;
     Float price;
     Float prime_cost;

@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Data
 public class Users {
     /** 用户id */
-    private Long id;
+    private String id;
     /** 微信用户唯一标识 */
     private String openId;
 //     用户电话号码

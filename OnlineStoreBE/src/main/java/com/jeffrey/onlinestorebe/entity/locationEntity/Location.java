@@ -8,9 +8,9 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 public class Location {
-    int id;
+    String id;
     String position;
     String phone;
     String name;
-    int user_id;
+    String user_id;
 }

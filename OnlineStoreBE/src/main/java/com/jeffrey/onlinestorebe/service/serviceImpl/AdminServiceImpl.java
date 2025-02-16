@@ -7,6 +7,8 @@ import com.jeffrey.onlinestorebe.utils.Result;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class AdminServiceImpl implements AdminService {
     @Resource
@@ -17,7 +19,7 @@ public class AdminServiceImpl implements AdminService {
         if(adminMapper.getAdminByUsername(admin.getUser_name())!=null){
             return new Result<Admin>(400,"用户名已存在",null);
         }
-
+        admin.setId(UUID.randomUUID().toString());
         Boolean adminRes = adminMapper.insertAdmin(admin);
         if(adminRes){
             return new Result<Admin>(200,"添加成功",admin);
@@ -26,7 +28,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Result<Boolean> deleteAdmin(Long id) {
+    public Result<Boolean> deleteAdmin(String id) {
         Boolean deleteRes = adminMapper.deleteAdmin(id);
         if(deleteRes){
             return new Result<Boolean>(200,"删除成功",deleteRes);
@@ -44,7 +46,7 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public Result<Admin> getAdminById(Long id) {
+    public Result<Admin> getAdminById(String id) {
         Admin admin = adminMapper.getAdminById(id);
         if(admin != null){
             return new Result<Admin>(200,"查询成功",admin);
