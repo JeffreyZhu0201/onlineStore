@@ -3,8 +3,8 @@
 <mapper namespace="com.jeffrey.onlinestorebe.mapper.LocationMapper">
 
     <insert id="insertLocation" useGeneratedKeys="true" keyProperty="id" parameterType="com.jeffrey.onlinestorebe.entity.locationEntity.Location">
-        insert into location (position, phone,name,user_id)
-        values ( #{position}, #{phone},#{name},#{user_id})
+        insert into location (id,position, phone,name,user_id)
+        values ( #{id},#{position}, #{phone},#{name},#{user_id})
     </insert>
 
 </mapper>

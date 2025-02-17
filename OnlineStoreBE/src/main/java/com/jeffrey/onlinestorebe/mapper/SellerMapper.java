@@ -25,7 +25,7 @@ public interface SellerMapper {
     @Update("update seller set username = #{user_name}, avatar_url = #{avatar_url},phone=#{phone} where id = #{id}")
     Boolean updateSeller(Seller seller);
 
-    @Update("update seller set invite_code = #{invite_code} where id = #{id}")
+    @Update("update `seller` set invite_code = #{inviteCode} where id = #{id}")
     Boolean updateInviteCode(String id, String inviteCode);
 
     // 根据 id 删除用户
