@@ -18,17 +18,42 @@
       </van-search>
     </view>
     <!-- 轮播图 -->
-    <t-swiper
-      current="{{current}}"
-      autoplay="{{autoplay}}"
-      duration="{{duration}}"
-      interval="{{interval}}"
-      list="{{swiperList}}"
-      navigation="{{ { type: 'dots-bar' } }}"
-    />
-    <!-- 商品分类 -->
-    
-    <!-- 商品预览 -->
+    <view style="margin:0 8rpx;">
+      <t-swiper
+        current="{{current}}"
+        autoplay="{{autoplay}}"
+        duration="{{duration}}"
+        interval="{{interval}}"
+        list="{{swiperList}}"
+        navigation="{{ { type: 'dots-bar' } }}"
+      />
+    </view>
 
+    
+
+    <!-- 商品分类 -->
+    <view style="margin:12rpx 16rpx;">
+      <van-grid square border="{{false}}" custom-class="gridStyle">
+      <van-grid-item use-slot text="文字" wx:for="{{ 8 }}" >
+        <image
+        wx:if="{{index%2}}"
+          style="width: 64rpx;height: 64rpx;margin: 16rpx;"
+          src="/static/images/icons8-shampoo-64.png"
+        />
+        <image
+        wx:if="{{!(index%2)}}"
+          style="width: 64rpx;height: 64rpx;margin: 16rpx;"
+          src="/static/images/icons8-lipstick-60.png"
+        />
+        <text style="font: 600; color: gray;">美妆</text>
+      </van-grid-item>
+    </van-grid>
+    </view>
+    <!-- 商品预览 -->
+    <view>
+      <van-row>
+        <van-col span="12">span: 12</van-col>
+      </van-row>
+    </view>
   </view>
 </scroll-view>

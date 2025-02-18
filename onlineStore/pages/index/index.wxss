@@ -9,6 +9,10 @@
   border-radius: 10rpx;
 }
 
+.gridStyle{
+  border-radius: 32rpx;
+}
+
 
 
 
