@@ -18,9 +18,16 @@
       </van-search>
     </view>
     <!-- 轮播图 -->
-    
+    <t-swiper
+      current="{{current}}"
+      autoplay="{{autoplay}}"
+      duration="{{duration}}"
+      interval="{{interval}}"
+      list="{{swiperList}}"
+      navigation="{{ { type: 'dots-bar' } }}"
+    />
     <!-- 商品分类 -->
-
+    
     <!-- 商品预览 -->
 
   </view>
