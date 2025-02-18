@@ -1,11 +1,14 @@
 /**index.wxss**/
-page {
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+
+.searchBtn{
+  padding:0 20rpx;
+  margin: 0 10rpx;
+  color: white ;
+  font-weight: 600;
+  background-color: red; 
+  border-radius: 10rpx;
 }
-.scrollarea {
-  flex: 1;
-  overflow-y: hidden;
-}
+
+
+
 
