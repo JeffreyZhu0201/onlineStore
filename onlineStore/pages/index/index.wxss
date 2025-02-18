@@ -1,4 +1,15 @@
 /**index.wxss**/
+.container {
+  background-color: rgb(245, 245, 245);
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+} 
+
+.scrollarea{
+  height: auto;
+}
 
 .searchBtn{
   padding:0 20rpx;

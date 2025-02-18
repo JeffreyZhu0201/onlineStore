@@ -1,0 +1,48 @@
+/* component/Card/Card.wxss */
+
+.CardContainer{
+  display: flex;
+  flex-direction: column;
+  margin: 12rpx 0;
+  border: 1rpx solid lightgrey;
+  border-radius: 24rpx;
+}
+
+.goodsImg{
+  width: auto;
+}
+
+.content{
+  padding: 8rpx 16rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.title{
+  overflow:hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow:ellipsis;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  font-weight: 600;
+  color: rgb(85, 85, 85);
+}
+
+van-tag{
+  margin:10rpx;
+}
+
+.moneyAndCart{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24rpx;
+}
+
+.moneyAndCart text{
+  color: rgb(209, 29, 29);
+  font-size: larger;
+  font-weight: 600;
+}

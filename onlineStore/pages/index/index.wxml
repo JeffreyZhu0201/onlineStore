@@ -29,8 +29,6 @@
       />
     </view>
 
-    
-
     <!-- 商品分类 -->
     <view style="margin:12rpx 16rpx;">
       <van-grid square border="{{false}}" custom-class="gridStyle">
@@ -51,9 +49,7 @@
     </view>
     <!-- 商品预览 -->
     <view>
-      <van-row>
-        <van-col span="12">span: 12</van-col>
-      </van-row>
+      <CardFlow></CardFlow>
     </view>
   </view>
 </scroll-view>

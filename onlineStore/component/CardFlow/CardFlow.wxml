@@ -1,0 +1,9 @@
+<!--component/CardFlow/CardFlow.wxml-->
+<view style="margin: 12rpx 16rpx;">
+  <van-row gutter="6">
+    <van-col span="12"><Card></Card></van-col>
+    <van-col span="12"><Card></Card></van-col>
+    <van-col span="12"><Card></Card></van-col>
+    <van-col span="12"><Card></Card></van-col>
+  </van-row>
+</view>
