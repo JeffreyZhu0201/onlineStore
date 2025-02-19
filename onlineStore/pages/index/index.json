@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "CardFlow":"/component/CardFlow/CardFlow"
+    "CardFlow": "/component/CardFlow/CardFlow"
   }
 }

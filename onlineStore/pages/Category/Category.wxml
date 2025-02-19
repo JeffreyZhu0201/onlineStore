@@ -1,2 +1,35 @@
 <!--pages/Category/Category.wxml-->
-<text>pages/Category/Category.wxml</text>
+<van-nav-bar
+  title="商品页"
+  fixed
+  placeholder
+/>
+
+<view class="side-bar-wrapper" style="height: calc(100vh)">
+  <t-side-bar value="{{sideBarIndex}}" bind:change="onSideBarChange">
+    <t-side-bar-item
+      wx:for="{{categories}}"
+      wx:key="label"
+      value="{{item.value || index}}"
+      label="{{item.label}}"
+      disabled="{{item.disabled}}"
+      badge-props="{{item.badgeProps}}"
+    />
+  </t-side-bar>
+  <view class="content" style="transform: translateY(-{{sideBarIndex * 100}}%)">
+    <scroll-view
+      wx:for="{{categories}}"
+      wx:key="label"
+      class="section"
+      scroll-y
+      scroll-top="{{scrollTop}}"
+      scroll-with-animation
+      show-scrollbar="{{false}}"
+    >
+      <CardFlow></CardFlow>
+    </scroll-view>
+  </view>
+</view>
+
+
+

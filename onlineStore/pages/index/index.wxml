@@ -1,6 +1,8 @@
 <!--index.wxml-->
 <van-nav-bar
   title="OnlineStore"
+  fixed
+  placeholder
 />
 
 <scroll-view class="scrollarea" scroll-y style="padding-bottom: {{safearea}}px;">
@@ -48,7 +50,9 @@
     </view>
     <!-- 商品预览 -->
     <view>
-      <CardFlow></CardFlow>
+      <CardFlow>
+        <t-back-top />
+      </CardFlow>
     </view>
   </view>
 </scroll-view>

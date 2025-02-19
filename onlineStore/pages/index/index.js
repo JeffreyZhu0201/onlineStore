@@ -37,7 +37,6 @@ Page({
         })
       }
     })
-    console.log(safearea)
 		this.getTabBar().init();
   },
   onSearch() {

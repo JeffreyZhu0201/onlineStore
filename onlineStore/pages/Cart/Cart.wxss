@@ -1,1 +1,4 @@
 /* pages/Cart/Cart.wxss */
+.bottomAction{
+  z-index: 100;
+}

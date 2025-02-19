@@ -10,7 +10,13 @@ Page({
   data: {
 
   },
+  onClickIcon() {
+    Toast('点击图标');
+  },
 
+  onClickButton() {
+    Toast('点击按钮');
+  },
   /**
    * 生命周期函数--监听页面加载
    */
