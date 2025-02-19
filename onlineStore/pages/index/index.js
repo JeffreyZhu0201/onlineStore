@@ -21,6 +21,7 @@ const swiperList = [
 
 Page({
   data: {
+    safearea:0,
     value:"",
     current: 1,
     autoplay: true,
@@ -29,6 +30,14 @@ Page({
     swiperList,
   },
   onShow() {
+    wx.getSystemInfo({
+      success: (res) => {
+        this.setData({
+          safearea : res.screenHeight - res.safeArea.bottom + 50
+        })
+      }
+    })
+    console.log(safearea)
 		this.getTabBar().init();
   },
   onSearch() {
@@ -47,4 +56,6 @@ Page({
       value: e.detail,
     });
   },
+  onLoad(options){
+  }
 })

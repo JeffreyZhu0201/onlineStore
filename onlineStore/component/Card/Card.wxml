@@ -5,13 +5,12 @@
   <!-- 标签 -->
   <view class="content">
     <view class="title">这是一个中文占位文字示例，用于测试排版和设计。你可以根据需要调整文字长度和内容，以满足实际需求。这里的内容没有实际意义，仅用于占位。</view>
-    <view style="display: flex;">
-      <van-tag color="#f2826a" size="medium">标签</van-tag>
-      <van-tag color="#7232dd" size="medium">标签</van-tag>
-    </view>
-
+    <view style="margin: 2rpx 0rpx 4rpx 0"><span style="font-size: small;">$</span> <span>100</span> <span style="font-size: small;">.88</span></view>
     <view class="moneyAndCart">
-      <text>$100</text>
+      <view style="display: flex; flex-direction: row;justify-content: flex-start; ">
+        <van-tag color="#f2826a" size="medium">标签</van-tag>
+        <van-tag color="#7232dd" size="medium">标签</van-tag>
+      </view>
       <view bind:tap="AddToCart" style="display: flex; flex-direction: row;background-color: red; width: 64rpx; height: 64rpx; justify-content: center;border-radius: 50%;"><van-icon name="plus" color="white"/></view>
     </view>
   </view>

@@ -4,12 +4,13 @@
   display: flex;
   flex-direction: column;
   margin: 12rpx 0;
-  border: 1rpx solid lightgrey;
   border-radius: 24rpx;
+  background-color: #EBF4F8;
 }
 
 .goodsImg{
   width: auto;
+  border-radius: 24rpx 24rpx 0 0;
 }
 
 .content{
@@ -22,15 +23,12 @@
   overflow:hidden;
   text-overflow: ellipsis;
   -o-text-overflow:ellipsis;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 1;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  font-weight: 600;
+  font-weight: 400;
+  font-size: medium;
   color: rgb(85, 85, 85);
-}
-
-van-tag{
-  margin:10rpx;
 }
 
 .moneyAndCart{
@@ -38,11 +36,15 @@ van-tag{
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 24rpx;
+  margin: 8rpx;
 }
 
-.moneyAndCart text{
+van-tag{
+  margin-right: 8rpx;
+}
+
+.content view span{
   color: rgb(209, 29, 29);
-  font-size: larger;
+  font-size: medium;
   font-weight: 600;
 }

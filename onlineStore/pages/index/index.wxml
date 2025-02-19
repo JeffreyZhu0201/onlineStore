@@ -1,10 +1,9 @@
 <!--index.wxml-->
-<view>
-  <van-nav-bar
+<van-nav-bar
   title="OnlineStore"
 />
-</view>
-<scroll-view class="scrollarea" scroll-y>
+
+<scroll-view class="scrollarea" scroll-y style="padding-bottom: {{safearea}}px;">
   <view class="container">
   <!-- 搜索框 -->
     <view class="searchBar">
@@ -43,7 +42,7 @@
           style="width: 64rpx;height: 64rpx;margin: 16rpx;"
           src="/static/images/icons8-lipstick-60.png"
         />
-        <text style="font: 600; color: gray;">美妆</text>
+        <text style="font: 600; color: gray;font-size: small;">美妆</text>
       </van-grid-item>
     </van-grid>
     </view>
