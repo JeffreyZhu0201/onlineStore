@@ -3,12 +3,8 @@
 const app = getApp()
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    safearea:0
   },
   onClickIcon() {
     Toast('点击图标');
@@ -35,6 +31,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    wx.getSystemInfo({
+      success: (res) => {
+        this.setData({
+          safearea : res.screenHeight - res.safeArea.bottom + 50
+        })
+      }
+    })
     this.getTabBar().init();
   },
 

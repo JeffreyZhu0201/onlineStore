@@ -4,7 +4,7 @@
   fixed
   placeholder
 /> -->
-<van-goods-action>
+<van-goods-action style="padding-bottom: {{safearea}}px;">
   <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
   <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickIcon" />
   <van-goods-action-button
