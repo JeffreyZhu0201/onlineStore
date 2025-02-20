@@ -1,2 +1,23 @@
 /* pages/Cart/Cart.wxss */
 
+.cartContent{
+  height: 100vh;
+}
+.sumPrice{
+  font-size: larger;
+  font-weight: 600;
+  color:rgb(231, 75, 75);
+}
+
+.submitBtn{
+  position: fixed;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 24rpx 0 0;
+  border-top: 1px solid rgb(230, 230, 230);
+  height: 64px;
+}

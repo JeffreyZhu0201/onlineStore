@@ -40,7 +40,10 @@
 }
 
 van-tag{
+  box-sizing: border-box;
+  width: auto;
   margin-right: 8rpx;
+  padding: 0;
 }
 
 .content view span{

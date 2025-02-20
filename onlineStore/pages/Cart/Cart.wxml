@@ -1,19 +1,16 @@
 <!--pages/Cart/Cart.wxml-->
-<!-- <van-nav-bar
+<van-nav-bar
   title="购物车"
   fixed
   placeholder
-/> -->
-<van-goods-action style="padding-bottom: {{safearea}}px;">
-  <van-goods-action-icon icon="chat-o" text="客服" bind:click="onClickIcon" />
-  <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickIcon" />
-  <van-goods-action-button
-    text="加入购物车"
-    type="warning"
-    bind:click="onClickButton"
-  />
-  <van-goods-action-button text="立即购买" bind:click="onClickButton" />
-</van-goods-action>
+/>
 
+<scroll-view style="padding-bottom: calc({{safearea}}+50);">
+  123
+</scroll-view>
 
-
+<view class="submitBtn" style="bottom: {{safearea}}px;">
+  <t-radio default-checked="{{true}}" allow-uncheck icon="dot" label="全选" />
+  <view class="sumPrice" style="margin-right: auto;"><span style="font-size: medium;color: black; font-weight: 400;">总价: </span>$123</view>
+  <van-button color="#7232dd" block>提交订单</van-button>
+</view>
