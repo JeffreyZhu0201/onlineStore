@@ -3,14 +3,7 @@
 
 <scroll-view enable-flex style="display: flex;flex-direction:column;padding-bottom: calc({{safearea}}+50); height: 100vh;background-color: rgb(166, 166, 204);box-sizing: border-box;">
   <view style="display: flex;flex-direction:column;align-items: center;width: 100%;padding: 10px 0;box-sizing: border-box;">
-    <!-- <t-radio
-     default-checked="{{true}}"
-     allow-uncheck
-     icon="dot"
-     borderless
-     style="display: inline-block;"
-    /> -->
-    <CartCard  />
+    <CartCard  goodsInfo="{{goods[0]}}"/>
   </view>
 </scroll-view>
 
@@ -20,6 +13,7 @@
 	 allow-uncheck
 	 icon="dot"
 	 label="全选"
+   rounded
 	 borderless
 	/>
 	<view class="sumPrice" style="margin-right: auto;">

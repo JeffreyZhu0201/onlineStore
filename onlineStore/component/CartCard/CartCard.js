@@ -22,10 +22,6 @@ Component({
     checked: {
       type: Boolean,
       value: false
-    },
-    number: {
-      type: Number,
-      value: 1
     }
   },
 

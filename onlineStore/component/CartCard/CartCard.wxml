@@ -1,13 +1,14 @@
 <!--component/CartCard/CartCard.wxml-->
 <view class="cardContainer">
   <view class="checkBox">
-    <checkbox checked="{{checked}}" bindtap="onCheckboxChange"/>
+    <t-radio default-checked="{{true}}" allow-uncheck icon="dot" style="box-sizing: border-box;padding: 0; background-color: transparent;" bind:tap="onCheckboxChange"/>
   </view>
   
   <view class="goodsInfo">
     <image class="goodsImg" src="{{goodsInfo.image}}" mode="aspectFill"/>
     
     <view class="content">
+      <view class="viewMore">商品详情-></view>
       <text class="title">{{goodsInfo.title}}</text>
       
       <view class="specs" wx:if="{{goodsInfo.specs}}">
@@ -15,10 +16,10 @@
       </view>
       
       <view class="priceAndNum">
-        <text class="price">¥{{goodsInfo.price}}</text>
+        <view class="price"><span style="font-size:small;">¥</span>{{goodsInfo.price}}</view>
         <view class="numControl">
           <text class="minus" bindtap="onMinus">-</text>
-          <text class="num">{{number}}</text>
+          <text class="num">{{goodsInfo.number}}</text>
           <text class="plus" bindtap="onPlus">+</text>
         </view>
       </view>

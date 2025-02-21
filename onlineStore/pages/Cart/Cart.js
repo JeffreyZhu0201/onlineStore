@@ -5,7 +5,16 @@ const app = getApp()
 Page({
   data: {
     safearea:0,
-    radio:false
+    radio:false,
+    goods:[
+      {
+        image:"/static/images/one-sports-shoe.jpg",
+        title:"title",
+        specs:"specs",
+        price:"123",
+        number:1
+      }
+    ]
   },
   onChange(event) {
     this.setData({
