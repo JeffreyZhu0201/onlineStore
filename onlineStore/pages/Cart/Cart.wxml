@@ -1,16 +1,31 @@
 <!--pages/Cart/Cart.wxml-->
-<van-nav-bar
-  title="购物车"
-  fixed
-  placeholder
-/>
+<van-nav-bar title="购物车" fixed placeholder />
 
-<scroll-view style="padding-bottom: calc({{safearea}}+50);">
-  123
+<scroll-view enable-flex style="display: flex;flex-direction:column;padding-bottom: calc({{safearea}}+50); height: 100vh;background-color: rgb(166, 166, 204);box-sizing: border-box;">
+  <view style="display: flex;flex-direction:column;align-items: center;width: 100%;padding: 10px 0;box-sizing: border-box;">
+    <!-- <t-radio
+     default-checked="{{true}}"
+     allow-uncheck
+     icon="dot"
+     borderless
+     style="display: inline-block;"
+    /> -->
+    <CartCard  />
+  </view>
 </scroll-view>
 
 <view class="submitBtn" style="bottom: {{safearea}}px;">
-  <t-radio default-checked="{{true}}" allow-uncheck icon="dot" label="全选" />
-  <view class="sumPrice" style="margin-right: auto;"><span style="font-size: medium;color: black; font-weight: 400;">总价: </span>$123</view>
-  <van-button color="#7232dd" block>提交订单</van-button>
+	<t-radio
+	 default-checked="{{true}}"
+	 allow-uncheck
+	 icon="dot"
+	 label="全选"
+	 borderless
+	/>
+	<view class="sumPrice" style="margin-right: auto;">
+		<span style="font-size: medium;color: black; font-weight: 400;">总价: </span>
+		$123
+	</view>
+	<van-button color="#7232dd" block>提交订单</van-button>
 </view>
+

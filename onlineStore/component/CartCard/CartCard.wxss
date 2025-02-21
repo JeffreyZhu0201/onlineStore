@@ -1,0 +1,95 @@
+/* component/CartCard/CartCard.wxss */
+
+.cardContainer {
+  width: 90vw;
+  height: 300rpx;
+  display: flex;
+  box-sizing: border-box;
+  
+  padding: 20rpx;
+  background-color: #eee;
+  border-bottom: 1rpx solid #eee;
+  border-radius: 18rpx;
+}
+
+.checkBox {
+  display: flex;
+  align-items: center;
+  margin-right: 20rpx;
+  border-radius: 50%;
+}
+
+.goodsInfo {
+  flex: 1;
+  display: flex;
+}
+
+.goodsImg {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 8rpx;
+  margin-right: 20rpx;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 10rpx;
+}
+
+.specs {
+  margin-bottom: 10rpx;
+}
+
+.specs-text {
+  font-size: 24rpx;
+  color: #999;
+  background: #f5f5f5;
+  padding: 4rpx 12rpx;
+  border-radius: 4rpx;
+}
+
+.priceAndNum {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+}
+
+.price {
+  color: #ff4444;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.numControl {
+  display: flex;
+  align-items: center;
+  border: 1rpx solid #eee;
+  border-radius: 6rpx;
+}
+
+.minus, .plus {
+  width: 60rpx;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  background: #f5f5f5;
+}
+
+.num {
+  width: 80rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-left: 1rpx solid #eee;
+  border-right: 1rpx solid #eee;
+}

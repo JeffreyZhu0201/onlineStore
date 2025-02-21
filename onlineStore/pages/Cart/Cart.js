@@ -40,6 +40,9 @@ Page({
     })
     this.getTabBar().init();
   },
+  selectItem(){
+    console.log("selected")
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

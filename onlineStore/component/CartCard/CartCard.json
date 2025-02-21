@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-radio": "tdesign-miniprogram/radio/radio",
+    "t-radio-group": "tdesign-miniprogram/radio-group/radio-group",
+    "van-card": "@vant/weapp/card/index"
+  }
+}

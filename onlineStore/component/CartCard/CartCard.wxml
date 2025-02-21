@@ -1,0 +1,27 @@
+<!--component/CartCard/CartCard.wxml-->
+<view class="cardContainer">
+  <view class="checkBox">
+    <checkbox checked="{{checked}}" bindtap="onCheckboxChange"/>
+  </view>
+  
+  <view class="goodsInfo">
+    <image class="goodsImg" src="{{goodsInfo.image}}" mode="aspectFill"/>
+    
+    <view class="content">
+      <text class="title">{{goodsInfo.title}}</text>
+      
+      <view class="specs" wx:if="{{goodsInfo.specs}}">
+        <text class="specs-text">{{goodsInfo.specs}}</text>
+      </view>
+      
+      <view class="priceAndNum">
+        <text class="price">¥{{goodsInfo.price}}</text>
+        <view class="numControl">
+          <text class="minus" bindtap="onMinus">-</text>
+          <text class="num">{{number}}</text>
+          <text class="plus" bindtap="onPlus">+</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
