@@ -1,13 +1,15 @@
 <!--pages/Cart/Cart.wxml-->
 <van-nav-bar title="购物车" fixed placeholder />
 
-<scroll-view enable-flex style="display: flex;flex-direction:column;padding-bottom: calc({{safearea}}+50); height: 100vh;background-color: rgb(166, 166, 204);box-sizing: border-box;">
-  <view style="display: flex;flex-direction:column;align-items: center;width: 100%;padding: 10px 0;box-sizing: border-box;">
-    <CartCard  goodsInfo="{{goods[0]}}"/>
+<scroll-view enable-flex style="display: flex;flex-direction:row;padding-bottom: calc({{safearea}}+50); height: 100vh;box-sizing: border-box;justify-content: center;background-color: rgb(241, 239, 239);">
+  <view>
+    <CartCard  goodsInfo="{{goods[0]}}"></CartCard>
+    <CartCard  goodsInfo="{{goods[0]}}"></CartCard>
+    <CartCard  goodsInfo="{{goods[0]}}"></CartCard>
   </view>
 </scroll-view>
 
-<view class="submitBtn" style="bottom: {{safearea}}px;">
+<view class="submitBtn" style="bottom: {{safearea}}px;background-color: white;">
 	<t-radio
 	 default-checked="{{true}}"
 	 allow-uncheck
