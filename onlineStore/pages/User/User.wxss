@@ -1,1 +1,52 @@
 /* pages/User/User.wxss */
+
+.scrollarea{
+  background-color: rgb(241, 239, 239);
+  height: 100vh;
+}
+
+.mine{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 24rpx;
+  padding: 64rpx 36rpx;
+  margin: 24rpx;
+}
+
+.mine image{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  border: 8rpx solid white;
+}
+
+.info{
+  margin-right: auto;
+  margin-left: 24rpx;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.userName{
+  font-size: larger;
+  font-weight: 600;
+  margin-bottom: 24rpx;
+}
+
+.phoneNum{
+  color: gray;
+}
+
+.orderManage{
+  margin: 64rpx 0;
+}
+
+.orderManage text{
+  margin: 24rpx;
+  box-sizing: border-box;
+  display: block;
+  font-size: larger;
+  font-weight: 600;
+}

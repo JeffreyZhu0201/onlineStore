@@ -25,6 +25,7 @@
       scroll-top="{{scrollTop}}"
       scroll-with-animation
       show-scrollbar="{{false}}"
+      style="background-color: rgb(241, 241, 241);"
     >
       <CardFlow></CardFlow>
     </scroll-view>

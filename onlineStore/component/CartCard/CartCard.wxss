@@ -42,7 +42,6 @@
   flex-direction: row;
   margin-left: auto;
   color: rgb(139, 139, 139);
-  font-size: large;
   font-weight: 400;
 }
 

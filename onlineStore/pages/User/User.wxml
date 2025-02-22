@@ -1,2 +1,29 @@
 <!--pages/User/User.wxml-->
-<text>pages/User/User.wxml</text>
+<van-nav-bar
+  title="我的"
+  fixed
+  placeholder
+/>
+
+<scroll-view class="scrollarea" scroll-y style="padding-bottom: {{safearea}}px;">
+  <view>
+    <view class="mine">
+      <image src="/static/images/icons8-shampoo-64.png" mode="aspectFit"/>
+      <view class="info">
+        <text class="userName">userName</text>
+        <text class="phoneNum">123123412345</text>
+      </view>
+      <view class="detail" style="align-self: center;"><t-icon name="chevron-right-s" size="48rpx" bind:tap="goToDetail" style="box-sizing: border-box;"></t-icon></view>
+    </view>
+
+    <view class="orderManage">
+      <text>订单管理</text>
+      <t-grid class="block">
+        <t-grid-item text="待付款" icon="wallet"/>
+        <t-grid-item text="待发货" icon="flight-takeoff" bindclick="onClick" />
+        <t-grid-item text="待收货" icon="bookmark-checked" bindclick="onClick" />
+        <t-grid-item text="所有订单" icon="task" bindclick="onClick" />
+      </t-grid>
+    </view>
+  </view>
+</scroll-view>

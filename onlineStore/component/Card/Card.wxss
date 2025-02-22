@@ -5,6 +5,7 @@
   flex-direction: column;
   margin: 12rpx 0;
   border-radius: 24rpx;
+  background-color: white;
 }
 
 .goodsImg{
