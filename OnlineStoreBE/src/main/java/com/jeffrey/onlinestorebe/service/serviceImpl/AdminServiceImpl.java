@@ -38,6 +38,9 @@ public class AdminServiceImpl implements AdminService {
 
     @Override
     public Result<Admin> updateAdmin(Admin admin) {
+        if(adminMapper.getAdminByUsername(admin.getUser_name())!=null){
+            return new Result<Admin>(400,"用户名已存在",null);
+        }
         Boolean updateRes = adminMapper.updateAdmin(admin);
         if(updateRes){
             return new Result<Admin>(200,"更新成功",admin);
