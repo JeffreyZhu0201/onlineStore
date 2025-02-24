@@ -34,11 +34,11 @@ public class SellerServiceImpl implements SellerService {
         if (sellerId == null) {
             Seller seller = Seller.builder().openId("123").id(UUID.randomUUID().toString()).create_time(LocalDateTime.now()).build();
             if(sellerMapper.insertSeller(seller) != null){
-                return Result.success("登录成功", JwtTokenUtil.generateTokenWithUserId(seller.getId()));
+                return Result.success("登录成功", JwtTokenUtil.generateToken(seller.getId()));
             }
             return Result.failure("登录失败");
         }
-        return Result.success("登录成功", JwtTokenUtil.generateTokenWithUserId(sellerId));
+        return Result.success("登录成功", JwtTokenUtil.generateToken(sellerId));
     }
 
     @Override

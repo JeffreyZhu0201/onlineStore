@@ -4,7 +4,6 @@ import com.auth0.jwt.exceptions.AlgorithmMismatchException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jeffrey.onlinestorebe.utils.jwtUtils.JwtTokenUtil;
 import jakarta.annotation.Nonnull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -20,7 +19,7 @@ public class JWTInterceptors implements HandlerInterceptor {
         String token = request.getHeader("token");
         try {
             // 验证令牌
-            JwtTokenUtil.parseTokenGetUserId(token);
+            JwtTokenUtil.parseTokenGetPayload(token);
             return true;  // 放行请求
         } catch (SignatureVerificationException e) {
             log.error(e.getMessage());

@@ -12,7 +12,7 @@ public class InterceptorConfig implements WebMvcConfigurer {
         registry.addInterceptor(new JWTInterceptors())
 //                .excludePathPatterns("/**");
                 .addPathPatterns("/**") // 所有接口token验证
-                .excludePathPatterns("/users/login/wechat"); // 登录接口不验证
-
+                .excludePathPatterns("/users/login/wechat") // 登录接口不验证
+                .excludePathPatterns("/admin/login"); // 登录接口不验证
     }
 }

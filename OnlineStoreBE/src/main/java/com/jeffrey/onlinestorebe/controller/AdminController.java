@@ -6,13 +6,20 @@ import com.jeffrey.onlinestorebe.utils.Result;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping("/admin")
 public class AdminController {
 
     @Resource
     private AdminService adminService;
+
+    @PostMapping("/login")
+    public Result<Map<String,String>> login(@RequestParam String username, @RequestParam String password){
+        return adminService.login(username, password);
+    }
 
     @PostMapping("/add")
     public Result<Admin> addAdmin(@RequestBody Admin admin){

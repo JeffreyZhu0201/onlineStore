@@ -4,15 +4,33 @@ import com.jeffrey.onlinestorebe.entity.adminEntity.Admin;
 import com.jeffrey.onlinestorebe.mapper.AdminMapper;
 import com.jeffrey.onlinestorebe.service.AdminService;
 import com.jeffrey.onlinestorebe.utils.Result;
+import com.jeffrey.onlinestorebe.utils.jwtUtils.JwtTokenUtil;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Service
 public class AdminServiceImpl implements AdminService {
     @Resource
     private AdminMapper adminMapper;
+
+    @Override
+    public Result<Map<String,String>> login(String username, String password) {
+        Admin admin = adminMapper.getAdminByUsername(username);
+        if(admin == null){
+            return new Result<Map<String,String>>(400, "用户名不存在", null);
+        }
+        if(!admin.getPassword().equals(password)){
+            return new Result<Map<String,String>>(400,"密码错误",null);
+        }
+        Map<String,String> map = new HashMap<>();
+        map.put("token",JwtTokenUtil.generateToken(admin.getUser_name()));
+        map.put("username",admin.getUser_name());
+        return new Result<Map<String,String>>(200,"登录成功",map);
+    }
 
     @Override
     public Result<Admin> addAdmin(Admin admin) {

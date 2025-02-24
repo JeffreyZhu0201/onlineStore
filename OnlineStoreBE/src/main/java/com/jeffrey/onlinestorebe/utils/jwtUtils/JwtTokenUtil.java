@@ -16,16 +16,16 @@ public class JwtTokenUtil {
      * @param userId
      * @return
      */
-    public static String generateTokenWithUserId(String userId) {
-        return JWT.create().withClaim("userId", userId).withExpiresAt(new Date(System.currentTimeMillis()+EXPIRATION_TIME)).sign(Algorithm.HMAC256(SECRET_KEY));
+    public static String generateToken(String payload) {
+        return JWT.create().withClaim("payload", payload).withExpiresAt(new Date(System.currentTimeMillis()+EXPIRATION_TIME)).sign(Algorithm.HMAC256(SECRET_KEY));
     }
     /**
      * 解析token并返回用户id
      * @param token
      * @return
      */
-    public static String parseTokenGetUserId(String token) {
+    public static String parseTokenGetPayload(String token) {
         DecodedJWT decodedJWT = JWT.require(Algorithm.HMAC256(SECRET_KEY)).build().verify(token);
-        return String.valueOf(decodedJWT.getClaim("userId"));
+        return String.valueOf(decodedJWT.getClaim("payload"));
     }
 }

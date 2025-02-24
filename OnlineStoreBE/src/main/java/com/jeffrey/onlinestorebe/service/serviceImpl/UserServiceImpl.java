@@ -33,11 +33,11 @@ public class UserServiceImpl implements UserService {
         if (userId == null) {
             Users user = Users.builder().openId("123").id(UUID.randomUUID().toString()).createTime(LocalDateTime.now()).build();
             if(usersMapper.insertUsers(user) != null){
-                return Result.success("登录成功", JwtTokenUtil.generateTokenWithUserId(user.getId()));
+                return Result.success("登录成功", JwtTokenUtil.generateToken(user.getId()));
             }
             return Result.failure("登录失败");
         }
-        return Result.success("登录成功", JwtTokenUtil.generateTokenWithUserId(userId));
+        return Result.success("登录成功", JwtTokenUtil.generateToken(userId));
     }
     public String getOpenId(String code) {
         WeChatProperties weChatProperties = new WeChatProperties();

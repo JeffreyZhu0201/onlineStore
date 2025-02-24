@@ -6,7 +6,11 @@ import com.jeffrey.onlinestorebe.mapper.AdminMapper;
 import com.jeffrey.onlinestorebe.utils.Result;
 import jakarta.annotation.Resource;
 
+import java.util.Map;
+
 public interface AdminService {
+
+    Result<Map<String,String>> login(String username, String password);
 
     Result<Admin> addAdmin(Admin admin);
 
