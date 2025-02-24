@@ -10,7 +10,7 @@ public class JwtTokenUtil {
     // 秘钥，实际应用中应该妥善保管，比如从配置文件读取等
     private static final String SECRET_KEY = "jeffreyzhusblogs";
     // Token过期时间，这里设置为1小时，单位是毫秒，可以按需调整
-    private static final long EXPIRATION_TIME = 30 * 1000;
+    private static final long EXPIRATION_TIME = 60*60 * 1000;
     /**
      * 生成携带用户id的token
      * @param userId

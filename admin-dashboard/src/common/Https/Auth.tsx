@@ -27,3 +27,17 @@ export function auth() {
         }
     })
 }
+
+export async function checkAuth(){
+    auth().then((res: { data: { code: number; }; }) => {
+        console.log(res);
+      if (res.data.code !== 200) {
+        localStorage.clear();
+        window.location.href = '/login';
+      }
+    }).catch((err: any) => {
+        console.log(err);
+        localStorage.clear();
+        window.location.href = '/login';
+    })
+  }
