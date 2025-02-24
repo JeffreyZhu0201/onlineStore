@@ -12,6 +12,7 @@
 // import {Navigate} from 'react-router-dom'
 
 import React from 'react'
+import { Navigate } from 'react-router-dom'
 
 const Login = React.lazy(()=>import('../pages/Login/Login'))
 const Register = React.lazy(()=>import('../pages/Register/Register'))
@@ -34,6 +35,12 @@ const links = [
         name:'',
         path:'/dashboard/*',
         page:<Dashboard></Dashboard>,
+        number:1
+    },
+    {
+        name:'',
+        path:'/',
+        page:<Navigate to='/dashboard' replace></Navigate>,
         number:1
     },
 ]
