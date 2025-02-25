@@ -94,9 +94,7 @@ const orderStatus = [
 ];
 
 function matchTag(status: string) {
-    if (status === 'completed') {
-        return { color: 'green', text: '已完成' };
-    } else if (status === 'shipping') {
+    if (status === 'shipping') {
         return { color: 'blue', text: '配送中' };
     }
     else if (status === 'unsend') {
