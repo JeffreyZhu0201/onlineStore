@@ -37,3 +37,19 @@ export interface OrderEntity {
     goodsList: GoodsEntity[];
     address: string;
 }
+
+export interface SettlementApplicationEntity{
+    id:string,
+    user_id:string,
+    user_name:string,
+    totle_money:number,
+    sharing_ratio:number,
+    withdraw_seller_money:number,
+    withdraw_developer_money:number,
+    withdraw_boss_money:number,
+    user_openId:string,
+    boss_openId:string,
+    develop_openId:string,
+    orderList:OrderEntity[],
+    status:string
+}
