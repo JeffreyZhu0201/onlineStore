@@ -11,7 +11,7 @@
 import React from "react";
 
 import { Card, Statistic, Row, Col } from 'antd';
-import { ArrowUpOutlined, ArrowDownOutlined, MoneyCollectOutlined, CheckCircleOutlined, ClockCircleOutlined, AccountBookOutlined, CreditCardOutlined, CheckSquareOutlined, TruckOutlined, FieldTimeOutlined, FileDoneOutlined, FileTextOutlined, ContainerOutlined, LineChartOutlined, UserAddOutlined } from '@ant-design/icons';
+import { MoneyCollectOutlined, CheckCircleOutlined, ClockCircleOutlined, AccountBookOutlined, CreditCardOutlined, CheckSquareOutlined, TruckOutlined, FieldTimeOutlined, FileDoneOutlined, FileTextOutlined, ContainerOutlined, LineChartOutlined, UserAddOutlined } from '@ant-design/icons';
 
 function Overview() {
   return (<div>

@@ -14,14 +14,7 @@ import { Table, TableProps, Space, Dropdown, message } from 'antd';
 import { DownOutlined } from "@ant-design/icons";
 import copy from "copy-to-clipboard";
 
-interface UserEntity {
-    id: string;
-    openId: string;
-    username: string;
-    phone: string;
-    address: string[];
-    avatarUrl: string;
-}
+import { UserEntity } from "../../../common/Entity";
 
 // 模拟数据
 const mockUsers: UserEntity[] = [

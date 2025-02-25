@@ -2,15 +2,16 @@
  * @Author: Jeffrey Zhu 1624410543@qq.com
  * @Date: 2025-02-24 15:21:40
  * @LastEditors: Jeffrey Zhu 1624410543@qq.com
- * @LastEditTime: 2025-02-25 13:34:48
+ * @LastEditTime: 2025-02-25 20:04:52
  * @FilePath: \onlineStore\admin-dashboard\src\pages\dashboard\dashboardLinks.tsx
  * @Description: File Description Here...
  * 
  * Copyright (c) 2025 by JeffreyZhu, All Rights Reserved. 
  */
 
-import { DollarOutlined, HomeOutlined, ShoppingCartOutlined,TeamOutlined,UserOutlined } from '@ant-design/icons'
+import { DollarOutlined, HomeOutlined, ShoppingCartOutlined,TeamOutlined,TruckOutlined,UserOutlined } from '@ant-design/icons'
 import React from 'react'
+import SendManage from './SendManage/SendManage'
 
 const Overview = React.lazy(() => import('./Overview/Overview'))
 const UserManage = React.lazy(() => import('./UserManage/UserManage'))
@@ -39,6 +40,13 @@ const dashboardLinks = [
         path: '/orderManage',
         page: <OrderManage></OrderManage>,
         icon: <ShoppingCartOutlined />,
+        number: 1
+    },
+    {
+        name: '发货管理',
+        path: '/sendManage',
+        page: <SendManage></SendManage>,
+        icon: <TruckOutlined />,
         number: 1
     },
     {
