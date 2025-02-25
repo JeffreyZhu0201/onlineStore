@@ -2,7 +2,7 @@
  * @Author: Jeffrey Zhu 1624410543@qq.com
  * @Date: 2025-02-24 15:55:10
  * @LastEditors: Jeffrey Zhu 1624410543@qq.com
- * @LastEditTime: 2025-02-24 23:57:33
+ * @LastEditTime: 2025-02-25 15:00:33
  * @FilePath: \onlineStore\admin-dashboard\src\pages\dashboard\Dashboard.tsx
  * @Description: File Description Here...
  * 
@@ -26,19 +26,26 @@ import Loading from '../../common/Loading';
 import { checkAuth } from "../../common/Https/Auth"
 
 import {
+    DownOutlined,
     MenuFoldOutlined,
     MenuUnfoldOutlined,
     UploadOutlined,
     UserOutlined,
     VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Button, Layout, Menu, theme } from 'antd';
+import { Button, Layout, Menu, theme, Dropdown, MenuProps, Space } from 'antd';
 
 const { Header, Sider, Content } = Layout;
 
 function Dashboard() {
-
+    const selectedLabel = localStorage.getItem('selectedLabel') || '0';
     const location = useLocation();
+    const items: MenuProps['items'] = [
+        {
+            key: '0',
+            icon: <UserOutlined />,
+            label: '退出登录',
+        }]
     if (location.pathname !== '/login') {
         checkAuth();
     }
@@ -48,38 +55,61 @@ function Dashboard() {
         token: { colorBgContainer, borderRadiusLG },
     } = theme.useToken();
 
-    const onClick = (e: any) => {
-        console.log('click ', e);
+    const onClick: MenuProps['onClick'] = ({ key }: { key: string }) => {
+        localStorage.clear();
+        window.location.href = '/login';
+        console.log('click ', key);
     };
 
     return (
         <>
-            <Layout className="h-full">
-                <Sider trigger={null} collapsible collapsed={collapsed}>
-                    
-                    <Menu
-                        onClick={onClick}
-                        theme="dark"
-                        mode="inline"
-                        defaultSelectedKeys={['1']}
-                        items={[
-                            {
-                                key: '1',
-                                icon: <UserOutlined />,
-                                label: 'nav 1',
-                            },
-                            {
-                                key: '2',
-                                icon: <VideoCameraOutlined />,
-                                label: 'nav 2',
-                            },
-                            {
-                                key: '3',
-                                icon: <UploadOutlined />,
-                                label: 'nav 3',
-                            },
-                        ]}
-                    />
+            <Layout className="h-screen">
+                <Sider trigger={null} collapsible collapsed={collapsed} className="flex flex-col h-screen">
+                    {/* Logo 区域 */}
+                    <div className={`flex-none flex items-center justify-center p-4 text-white ${collapsed ? 'space-x-0' : 'space-x-2'}`}>
+                        <UserOutlined className="text-2xl" />
+                        {!collapsed && <span>后台管理</span>}
+                    </div>
+
+                    {/* 导航菜单区域 */}
+                    <div className="flex flex-col flex-1 full">
+                        <div className="flex-1 overflow-y-auto">
+                            <Menu
+                                theme="dark"
+                                mode="inline"
+                                defaultSelectedKeys={['0']}
+                                selectedKeys={[selectedLabel]}
+                                items={dashboardLinks.map((item, index) => ({
+                                    key: index.toString(),
+                                    icon: item.icon,
+                                    label: item.name,
+                                    onClick: () => {
+                                        window.location.href = '/dashboard' + item.path;
+                                        localStorage.setItem('selectedLabel', index.toString());
+                                    }
+                                }))}
+                            />
+                        </div>
+
+                        {/* 用户信息区域 */}
+                        <div className={`flex-none flex mt-auto items-center ${collapsed ? 'justify-center' : 'justify-between'} p-4 text-white border-t border-gray-800`}>
+                            <div className="flex items-center">
+                                <UserOutlined className="text-2xl justify-center" />
+                                {!collapsed && <span className="ml-2">用户名</span>}
+                            </div>
+                            {!collapsed && (
+                                <div className="logout">
+                                    <Dropdown menu={{ items, onClick }} placement="topRight">
+                                        <a onClick={(e) => e.preventDefault()}>
+                                            <Space>
+                                                <DownOutlined></DownOutlined>
+                                            </Space>
+                                        </a>
+                                    </Dropdown>
+                                </div>
+                            )}
+                        </div>
+                    </div>
                 </Sider>
 
                 <Layout>
