@@ -14,8 +14,9 @@ import axios from "axios"
 import staticResource from "../staticResource"
 
 
-export function login(username: string, password: string) {
-    return axios({
+export async function login(username: string, password: string) {
+    console.log("login")
+    return await axios({
         method: "post",
         url: staticResource.baseUrl + "/admin/login",
         params: {

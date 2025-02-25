@@ -2,7 +2,7 @@
  * @Author: Jeffrey Zhu 1624410543@qq.com
  * @Date: 2025-02-24 15:55:10
  * @LastEditors: Jeffrey Zhu 1624410543@qq.com
- * @LastEditTime: 2025-02-25 15:00:33
+ * @LastEditTime: 2025-02-25 18:27:19
  * @FilePath: \onlineStore\admin-dashboard\src\pages\dashboard\Dashboard.tsx
  * @Description: File Description Here...
  * 
@@ -10,7 +10,7 @@
  */
 
 
-import React, { useState, Suspense } from "react"
+import React, { useState, Suspense, useEffect } from "react"
 
 import {
     BrowserRouter as Router,
@@ -39,16 +39,20 @@ const { Header, Sider, Content } = Layout;
 
 function Dashboard() {
     const selectedLabel = localStorage.getItem('selectedLabel') || '0';
-    const location = useLocation();
+
+    useEffect(()=>{
+        checkAuth();
+    
+        console.log("dashboard")
+    },[])
+
     const items: MenuProps['items'] = [
         {
             key: '0',
             icon: <UserOutlined />,
             label: '退出登录',
-        }]
-    if (location.pathname !== '/login') {
-        checkAuth();
-    }
+        }
+    ]
 
     const [collapsed, setCollapsed] = useState(false);
     const {
@@ -142,6 +146,7 @@ function Dashboard() {
                                 </Route>
                             })}
                         </Routes>
+                        <Outlet></Outlet>
                     </Content>
                 </Layout>
             </Layout>

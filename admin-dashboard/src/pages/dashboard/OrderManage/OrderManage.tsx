@@ -11,6 +11,14 @@
 
 import React from 'react'
 
+interface OrderEntity {
+    id: string;
+    username: string;
+    phone: string;
+    address: string[];
+    avatarUrl: string;
+}
+
 function OrderManage() {
     return (
         <div>

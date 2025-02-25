@@ -2,7 +2,7 @@
  * @Author: Jeffrey Zhu 1624410543@qq.com
  * @Date: 2025-02-24 22:49:30
  * @LastEditors: Jeffrey Zhu 1624410543@qq.com
- * @LastEditTime: 2025-02-24 23:01:38
+ * @LastEditTime: 2025-02-25 17:12:25
  * @FilePath: \onlineStore\admin-dashboard\src\common\Https\Auth.tsx
  * @Description: File Description Here...
  * 
@@ -29,12 +29,12 @@ export function auth() {
 }
 
 export async function checkAuth(){
-    auth().then((res: { data: { code: number; }; }) => {
-        console.log(res);
+    await auth().then((res: { data: { code: number; }; }) => {
       if (res.data.code !== 200) {
         localStorage.clear();
         window.location.href = '/login';
       }
+      // console.log("checked!")
     }).catch((err: any) => {
         console.log(err);
         localStorage.clear();

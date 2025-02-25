@@ -2,7 +2,7 @@
  * @Author: Jeffrey Zhu 1624410543@qq.com
  * @Date: 2025-02-24 14:00:33
  * @LastEditors: Jeffrey Zhu 1624410543@qq.com
- * @LastEditTime: 2025-02-24 22:59:30
+ * @LastEditTime: 2025-02-25 17:07:34
  * @FilePath: \onlineStore\admin-dashboard\src\App.tsx
  * @Description: File Description Here...
  * 
@@ -13,8 +13,7 @@ import './App.css';
 import {
   BrowserRouter as Router,
   Routes,
-  Route,
-  useLocation
+  Route
   //  Link
 } from 'react-router-dom';
 import links from "./common/Links"
@@ -22,10 +21,7 @@ import links from "./common/Links"
 import { Suspense } from 'react';
 import Loading from './common/Loading';
 
-
-
 function App() {
-
   return (
     <Router>
       <Routes >

@@ -14,9 +14,16 @@ import java.util.Map;
 public class JWTInterceptors implements HandlerInterceptor {
     @Override
     public boolean preHandle(@Nonnull jakarta.servlet.http.HttpServletRequest request, @Nonnull jakarta.servlet.http.HttpServletResponse response, @Nonnull Object handler) throws Exception {
+        // 如果是 OPTIONS 请求，我们就让他通过，不管他
+        if (request.getMethod().equals("OPTIONS")) {
+            //response.setStatus(HttpServletResponse.SC_OK);
+            return true;
+            // 如果不是，我们就把token拿到，用来做判断
+        }
         Map<String,Object> map = new HashMap<>();
         // 获取请求头中令牌
         String token = request.getHeader("token");
+//        System.out.println(token);
         try {
             // 验证令牌
             JwtTokenUtil.parseTokenGetPayload(token);

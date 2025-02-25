@@ -2,7 +2,7 @@
  * @Author: Jeffrey Zhu 1624410543@qq.com
  * @Date: 2025-02-24 15:59:41
  * @LastEditors: Jeffrey Zhu 1624410543@qq.com
- * @LastEditTime: 2025-02-25 16:38:16
+ * @LastEditTime: 2025-02-25 18:20:30
  * @FilePath: \onlineStore\admin-dashboard\src\pages\dashboard\UserManage\UserManage.tsx
  * @Description: File Description Here...
  * 
@@ -10,7 +10,7 @@
  */
 
 import React from "react"
-import { Table, Tag, TableProps, Space, Dropdown, message } from 'antd';
+import { Table, TableProps, Space, Dropdown, message } from 'antd';
 import { DownOutlined } from "@ant-design/icons";
 import copy from "copy-to-clipboard";
 
@@ -52,10 +52,10 @@ const mockUsers: UserEntity[] = [
 ];
 
 function UserManage() {
-    function updateUser(record:UserEntity){
+    const updateUser = (record: UserEntity) => {
         console.log(1)
     }
-    function deleteUser(record:UserEntity){
+    const deleteUser = (record:UserEntity)=>{
         console.log(record)
     }
     const columns: TableProps<UserEntity>['columns'] = [
@@ -119,8 +119,8 @@ function UserManage() {
             key: 'action',
             render: (_, record) => (
                 <Space size="middle">
-                    <a onClick={updateUser(record)}>更新</a>
-                    <a onClick={deleteUser(record)}>删除</a>
+                    <button onClick={() => updateUser(record)} style={{ background: 'none', border: 'none', color: '#1890ff', cursor: 'pointer', padding: 0 }}>更新</button>
+                    <button onClick={() => deleteUser(record)} style={{ background: 'none', border: 'none', color: '#1890ff', cursor: 'pointer', padding: 0 }}>删除</button>
                 </Space>
             ),
             width: 100
