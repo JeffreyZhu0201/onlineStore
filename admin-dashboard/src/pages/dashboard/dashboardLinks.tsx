@@ -16,7 +16,7 @@ import SendManage from './SendManage/SendManage'
 const Overview = React.lazy(() => import('./Overview/Overview'))
 const UserManage = React.lazy(() => import('./UserManage/UserManage'))
 const OrderManage = React.lazy(() => import('./OrderManage/OrderManage'))
-const SalerManage = React.lazy(() => import('./SalerManage/SalerManage'))
+const SalerManage = React.lazy(() => import('./SellerManage/SellerManage'))
 const SettlementApplication = React.lazy(() => import('./SettlementApplication/SettlementApplication'))
 
 

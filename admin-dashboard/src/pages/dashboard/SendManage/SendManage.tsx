@@ -28,7 +28,10 @@ const mockOrders: OrderEntity[] = [
             id: 'seller001',
             openId: 'wx_seller001',
             phone: '13800138000',
-            user_name: '苹果官方旗舰店'
+            user_name: '苹果官方旗舰店',
+            sharing_ratio: 0,
+            sell_volume: 0,
+            withdraw:0
         },
         status: 'completed',
         withdraw_status: 'processed',
@@ -59,7 +62,10 @@ const mockOrders: OrderEntity[] = [
             id: 'seller002',
             openId: 'wx_seller002',
             phone: '13900139000',
-            user_name: '数码电器专营店'
+            user_name: '数码电器专营店',
+            sharing_ratio: 0,
+            sell_volume: 0,
+            withdraw:10020
         },
         status: 'shipping',
         withdraw_status: 'pending',

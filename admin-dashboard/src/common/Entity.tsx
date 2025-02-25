@@ -20,6 +20,9 @@ export interface SellerEntity{
     openId:string,
     phone: string;
     user_name: string;
+    sharing_ratio:number;
+    sell_volume:number;
+    withdraw:number
 }
 
 // 订单实体类型定义
