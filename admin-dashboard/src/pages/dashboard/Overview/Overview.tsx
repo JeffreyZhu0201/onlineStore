@@ -2,7 +2,7 @@
  * @Author: Jeffrey Zhu 1624410543@qq.com
  * @Date: 2025-02-24 15:22:21
  * @LastEditors: Jeffrey Zhu 1624410543@qq.com
- * @LastEditTime: 2025-02-25 15:35:08
+ * @LastEditTime: 2025-02-25 15:46:56
  * @FilePath: \onlineStore\admin-dashboard\src\pages\dashboard\Overview\Overview.tsx
  * @Description: File Description Here...
  * 
@@ -11,7 +11,7 @@
 import React from "react";
 
 import { Card, Statistic, Row, Col } from 'antd';
-import { ArrowUpOutlined, ArrowDownOutlined, MoneyCollectOutlined } from '@ant-design/icons';
+import { ArrowUpOutlined, ArrowDownOutlined, MoneyCollectOutlined, CheckCircleOutlined, ClockCircleOutlined, AccountBookOutlined, CreditCardOutlined, CheckSquareOutlined, TruckOutlined, FieldTimeOutlined, FileDoneOutlined, FileTextOutlined, ContainerOutlined, LineChartOutlined, UserAddOutlined } from '@ant-design/icons';
 
 function Overview() {
   return (<div>
@@ -29,7 +29,7 @@ function Overview() {
               value={11.28}
               precision={2}
               valueStyle={{ color: '#3f8600' }}
-              prefix={<MoneyCollectOutlined />}
+              prefix={<AccountBookOutlined />}
               suffix="元"
             />
           </Card>
@@ -41,7 +41,7 @@ function Overview() {
                   value={6.28}
                   precision={2}
                   valueStyle={{ color: '#3f8600' }}
-                  prefix={<MoneyCollectOutlined />}
+                  prefix={<CheckCircleOutlined />}
                   suffix="元"
                 />
               </Card>
@@ -54,7 +54,7 @@ function Overview() {
                   value={5.00}
                   precision={2}
                   valueStyle={{ color: '#3f8600' }}
-                  prefix={<MoneyCollectOutlined />}
+                  prefix={<TruckOutlined />}
                   suffix="元"
                 />
               </Card>
@@ -70,7 +70,7 @@ function Overview() {
                   value={6.28}
                   precision={2}
                   valueStyle={{ color: '#3f8600' }}
-                  prefix={<MoneyCollectOutlined />}
+                  prefix={<CheckSquareOutlined />}
                   suffix="元"
                 />
               </Card>
@@ -83,7 +83,7 @@ function Overview() {
                   value={0.00}
                   precision={2}
                   valueStyle={{ color: '#3f8600' }}
-                  prefix={<MoneyCollectOutlined />}
+                  prefix={<ClockCircleOutlined />}
                   suffix="元"
                 />
               </Card>
@@ -97,7 +97,7 @@ function Overview() {
               value={5}
               precision={2}
               valueStyle={{ color: '#3f8600' }}
-              prefix={<MoneyCollectOutlined />}
+              prefix={<CreditCardOutlined />}
               suffix="元"
             />
           </Card>
@@ -112,7 +112,7 @@ function Overview() {
               value={5}
               precision={0}
               valueStyle={{ color: '#3f8600' }}
-              prefix={<MoneyCollectOutlined />}
+              prefix={<FileTextOutlined />}
               suffix="笔"
             />
           </Card>
@@ -124,7 +124,7 @@ function Overview() {
                   value={2}
                   precision={0}
                   valueStyle={{ color: '#3f8600' }}
-                  prefix={<MoneyCollectOutlined />}
+                  prefix={<FileDoneOutlined />}
                   suffix="笔"
                 />
               </Card>
@@ -137,7 +137,7 @@ function Overview() {
                   value={3}
                   precision={0}
                   valueStyle={{ color: '#3f8600' }}
-                  prefix={<MoneyCollectOutlined />}
+                  prefix={<FieldTimeOutlined />}
                   suffix="笔"
                 />
               </Card>
@@ -166,26 +166,13 @@ function Overview() {
                   value={0}
                   precision={0}
                   valueStyle={{ color: '#3f8600' }}
-                  prefix={<MoneyCollectOutlined />}
+                  prefix={<ClockCircleOutlined />}
                   suffix="笔"
                 />
               </Card>
             </Col>
 
           </Row>
-
-          <Card className="drop-shadow-lg">
-            <Statistic
-              title="理论总余额"
-              value={5}
-              precision={2}
-              valueStyle={{ color: '#3f8600' }}
-              prefix={<MoneyCollectOutlined />}
-              suffix="元"
-            />
-          </Card>
-
-
         </Col>
         {/* 今日数据 */}
         <Col span={8}>
@@ -196,7 +183,7 @@ function Overview() {
               value={100.00}
               precision={2}
               valueStyle={{ color: '#cf1322' }}
-              prefix={<ArrowDownOutlined />}
+              prefix={<LineChartOutlined />}
               suffix="元"
             />
           </Card>
@@ -205,11 +192,23 @@ function Overview() {
               <Card className="drop-shadow-lg mb-4">
                 <Statistic
                   title="今日新增订单量"
-                  value={100.00}
-                  precision={2}
+                  value={100}
+                  precision={0}
                   valueStyle={{ color: '#cf1322' }}
-                  prefix={<ArrowDownOutlined />}
-                  suffix="元"
+                  prefix={ <ContainerOutlined />}
+                  suffix="笔"
+                />
+              </Card>
+            </Col>
+            <Col span={12}>
+              <Card className="drop-shadow-lg mb-4">
+                <Statistic
+                  title="今日新增用户数"
+                  value={123}
+                  precision={0}
+                  valueStyle={{ color: '#cf1322' }}
+                  prefix={<UserAddOutlined />}
+                  suffix="人"
                 />
               </Card>
             </Col>
