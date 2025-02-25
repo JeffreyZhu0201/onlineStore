@@ -55,7 +55,7 @@ function UserManage() {
     const updateUser = (record: UserEntity) => {
         console.log(1)
     }
-    const deleteUser = (record:UserEntity)=>{
+    const deleteUser = (record: UserEntity) => {
         console.log(record)
     }
     const columns: TableProps<UserEntity>['columns'] = [
@@ -100,9 +100,9 @@ function UserManage() {
             title: '地址',
             dataIndex: 'address',
             key: 'address',
-            render: (_, {address}) => (
+            render: (_, { address }) => (
                 <>
-                    <Dropdown menu={{ items: address.map((item, index) => ({ key: index, label: item,onClick:()=>{copy(item);message.success(`已复制:${item}`)} })) }}>
+                    <Dropdown menu={{ items: address.map((item, index) => ({ key: index, label: item, onClick: () => { copy(item); message.success(`已复制:${item}`) } })) }}>
                         <button onClick={(e) => e.preventDefault()}>
                             <Space>
                                 {address[0]}
@@ -128,20 +128,23 @@ function UserManage() {
     ];
 
     return (
-        <div className="p-4">
-            <Table<UserEntity>
-                columns={columns}
-                dataSource={mockUsers}
-                rowKey="id"
-                scroll={{ x: 1000 }}
-                pagination={{
-                    total: mockUsers.length,
-                    pageSize: 10,
-                    showSizeChanger: true,
-                    showQuickJumper: true,
-                }}
-            />
-        </div>
+        <>
+            <div className="font-semibold text-3xl m-4">用户管理</div>
+            <div className="p-4">
+                <Table<UserEntity>
+                    columns={columns}
+                    dataSource={mockUsers}
+                    rowKey="id"
+                    scroll={{ x: 1000 }}
+                    pagination={{
+                        total: mockUsers.length,
+                        pageSize: 10,
+                        showSizeChanger: true,
+                        showQuickJumper: true,
+                    }}
+                />
+            </div>
+        </>
     );
 }
 
