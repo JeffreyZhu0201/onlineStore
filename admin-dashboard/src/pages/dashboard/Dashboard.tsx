@@ -13,11 +13,9 @@
 import React, { useState, Suspense, useEffect } from "react"
 
 import {
-    BrowserRouter as Router,
     Routes,
     Route,
     Outlet,
-    useLocation
     //  Link
 } from 'react-router-dom';
 
@@ -29,9 +27,7 @@ import {
     DownOutlined,
     MenuFoldOutlined,
     MenuUnfoldOutlined,
-    UploadOutlined,
-    UserOutlined,
-    VideoCameraOutlined,
+    UserOutlined
 } from '@ant-design/icons';
 import { Button, Layout, Menu, theme, Dropdown, MenuProps, Space } from 'antd';
 
@@ -104,11 +100,11 @@ function Dashboard() {
                             {!collapsed && (
                                 <div className="logout">
                                     <Dropdown menu={{ items, onClick }} placement="topRight">
-                                        <a onClick={(e) => e.preventDefault()}>
+                                        <button onClick={(e) => e.preventDefault()}>
                                             <Space>
                                                 <DownOutlined></DownOutlined>
                                             </Space>
-                                        </a>
+                                        </button>
                                     </Dropdown>
                                 </div>
                             )}

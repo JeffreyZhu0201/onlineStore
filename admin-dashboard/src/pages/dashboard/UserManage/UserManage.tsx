@@ -103,12 +103,12 @@ function UserManage() {
             render: (_, {address}) => (
                 <>
                     <Dropdown menu={{ items: address.map((item, index) => ({ key: index, label: item,onClick:()=>{copy(item);message.success(`已复制:${item}`)} })) }}>
-                        <a onClick={(e) => e.preventDefault()}>
+                        <button onClick={(e) => e.preventDefault()}>
                             <Space>
                                 {address[0]}
                                 <DownOutlined />
                             </Space>
-                        </a>
+                        </button>
                     </Dropdown>
                 </>
             ),
