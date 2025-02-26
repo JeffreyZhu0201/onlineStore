@@ -1,6 +1,9 @@
 package com.jeffrey.onlinestorebe.controller;
 
+import com.jeffrey.onlinestorebe.service.FileUploadService;
 import com.jeffrey.onlinestorebe.utils.Result;
+import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +22,9 @@ import java.util.UUID;
 @RequestMapping("/api/files")
 public class FileUploadController {
 
+    @Resource
+    FileUploadService fileUploadService;
+
     @Value("${file.upload-dir}")
     private String uploadDir;
 
@@ -28,28 +34,7 @@ public class FileUploadController {
             if(file.getSize() > 10*1024*1024){
                 return new Result<Map<String,String>>(400,"文件体积不得大于10M",null);
             }
-            // Create the directory if it doesn't exist
-            File directory = new File(uploadDir);
-            if (!directory.exists()) {
-                directory.mkdirs();
-            }
-            String originalFileName = file.getOriginalFilename();
-            assert originalFileName != null;
-            String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
-            String newFileName = UUID.randomUUID().toString() + fileExtension;
-
-            // Save the file file.getOriginalFilename()
-            Path filePath = Paths.get(uploadDir, newFileName);
-            Files.write(filePath, file.getBytes());
-            // Create file download URI
-//            URIString fileDownloadUri = ServletUriComponentsBuilder.fromCurrentContextPath()
-//                    .path("/uploads/")
-//                    .path(Objects.requireNonNull(newFileName))
-//                    .toUriString();
-
-            Map<String,String> res = new HashMap<>();
-            res.put("fileName",newFileName);
-            return new Result<Map<String,String>>(200,"文件上传成功",res);
+            return fileUploadService.commonUpload(file,uploadDir);
         } catch (IOException e) {
             Map<String,String> res = new HashMap<>();
             res.put("err",HttpStatus.INTERNAL_SERVER_ERROR.toString());

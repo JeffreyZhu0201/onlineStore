@@ -12,6 +12,7 @@ import com.jeffrey.onlinestorebe.utils.jwtUtils.JwtTokenUtil;
 import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.security.SecureRandom;
@@ -26,19 +27,23 @@ public class SellerServiceImpl implements SellerService {
     @Resource
     private final SellerMapper sellerMapper;
 
+    @Value("${default.SharingRatio}")
+    private Float defaultSharingRatio;
+
     @Override
     public Result<String> loginWithWeChat(String code) {
         String openId = getOpenId(code);
+        String id = UUID.randomUUID().toString();
         // 查询用户是否已存在
-        String sellerId = sellerMapper.getSellerByOpenId(openId);
-        if (sellerId == null) {
-            Seller seller = Seller.builder().openId("123").id(UUID.randomUUID().toString()).create_time(LocalDateTime.now()).build();
+        if (sellerMapper.getSellerByOpenId(openId) == null) {
+
+            Seller seller = Seller.builder().openId("123").id(id).user_name(UUID.randomUUID().toString()).unpaid(0.00F).paid(0.00F).sharing_ratio(defaultSharingRatio).create_time(LocalDateTime.now()).build();
             if(sellerMapper.insertSeller(seller) != null){
                 return Result.success("登录成功", JwtTokenUtil.generateToken(seller.getId()));
             }
             return Result.failure("登录失败");
         }
-        return Result.success("登录成功", JwtTokenUtil.generateToken(sellerId));
+        return Result.success("登录成功", JwtTokenUtil.generateToken(id));
     }
 
     @Override

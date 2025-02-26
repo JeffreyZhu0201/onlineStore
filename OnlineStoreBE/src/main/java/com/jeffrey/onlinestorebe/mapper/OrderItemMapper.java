@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface OrderItemMapper {
 
-    @Insert("insert into order_item (id,item_id,order_id,number,prime_cost,price) value(#{id},#{item_id},#{order_id},#{number},#{prime_cost},#{price})")
+    @Insert("insert into order_item (id,item_id,order_id,number,price) value(#{id},#{item_id},#{order_id},#{number},#{price})")
     Boolean insertOderItem(OrderItem oderItem);
 
     @Delete("delete from order_item where id = #{id}")

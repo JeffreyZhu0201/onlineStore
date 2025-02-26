@@ -14,7 +14,7 @@ public interface SellerMapper {
     String getSellerByOpenId(String openId);
     // 新增用户 并返回id
 
-    @Insert("insert into seller (open_id,phone,username,avatar_url,create_time,invite_code) values (#{open_id},#{phone},#{user_name},#{avatar_url},#{create_time},#{invite_code})")
+    @Insert("insert into seller (id,open_id,phone,username,avatar_url,create_time,invite_code,sharing_ratio) values (#{id},#{open_id},#{phone},#{user_name},#{avatar_url},#{create_time},#{invite_code},#{sharing_ratio)")
     Boolean insertSeller(Seller seller);
 
     // 根据 id 查询用户

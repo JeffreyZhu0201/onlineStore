@@ -8,7 +8,7 @@ import java.util.List;
 @Mapper
 public interface OrderMapper {
 
-    @Insert("INSERT INTO `order` (id,user_id, paid_time, seller_id, prime_cost,money, address_id) values (#{id},#{user_id},#{paid_time}, #{seller_id}, #{prime_cost},#{money} ,#{address_id})")//
+    @Insert("INSERT INTO `order` (id,user_id, paid_time, seller_id,money, address_id) values (#{id},#{user_id},#{paid_time}, #{seller_id},#{money} ,#{address_id})")//
     void insertOrder(Order order);
 
     @Delete("DELETE FROM `order` WHERE id = #{orderId}")
@@ -26,13 +26,13 @@ public interface OrderMapper {
     @Select("SELECT * FROM `order` where status=#{status} and user_id=#{userId}")
     List<Order> getOrdersByStatusAndUserId(String status, Long userId);
 
-    @Select("SELECT * FROM `order` where status=#{status} and seller_id=#{sellerId} and withdraw_status=#{withdrawStatus}")
-    List<Order> getOrdersByStatusAndSellerId(String status, Long sellerId, String withdrawStatus);
+    @Select("SELECT * FROM `order` where status=#{status} and seller_id=#{sellerId}")
+    List<Order> getOrdersByStatusAndSellerId(String status, Long sellerId);
 
     @Select("SELECT * FROM `order` where seller_id=#{sellerId}")
     List<Order> getOrdersBySellerId(Long sellerId);
 
-    @Update("UPDATE `order` SET withdraw_status = #{withdrawStatus} WHERE id = #{orderId}")
-    Boolean updateOrderWithdrawStatus(Long orderId, String withdrawStatus);
+//    @Update("UPDATE `order` SET withdraw_status = #{withdrawStatus} WHERE id = #{orderId}")
+//    Boolean updateOrderWithdrawStatus(Long orderId, String withdrawStatus);
 
 }
