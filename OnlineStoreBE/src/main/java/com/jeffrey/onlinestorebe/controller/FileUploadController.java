@@ -3,10 +3,8 @@ package com.jeffrey.onlinestorebe.controller;
 import com.jeffrey.onlinestorebe.utils.Result;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +13,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 import java.util.UUID;
 
 @RestController
@@ -28,6 +25,9 @@ public class FileUploadController {
     @PostMapping("/upload")
     public Result<Map<String,String>> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
+            if(file.getSize() > 10*1024*1024){
+                return new Result<Map<String,String>>(400,"文件体积不得大于10M",null);
+            }
             // Create the directory if it doesn't exist
             File directory = new File(uploadDir);
             if (!directory.exists()) {
@@ -38,7 +38,6 @@ public class FileUploadController {
             String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
             String newFileName = UUID.randomUUID().toString() + fileExtension;
 
-
             // Save the file file.getOriginalFilename()
             Path filePath = Paths.get(uploadDir, newFileName);
             Files.write(filePath, file.getBytes());
@@ -47,6 +46,7 @@ public class FileUploadController {
 //                    .path("/uploads/")
 //                    .path(Objects.requireNonNull(newFileName))
 //                    .toUriString();
+
             Map<String,String> res = new HashMap<>();
             res.put("fileName",newFileName);
             return new Result<Map<String,String>>(200,"文件上传成功",res);
