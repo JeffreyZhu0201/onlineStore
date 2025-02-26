@@ -23,6 +23,5 @@ public class Order {
     String seller_id;
     Float prime_cost;
     String status;
-    String withdraw_status;
     String address_id;
 }

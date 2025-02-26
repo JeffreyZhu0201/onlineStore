@@ -13,5 +13,4 @@ public class OrderItem {
     String item_id;
     Integer number;
     Float price;
-    Float prime_cost;
 }

@@ -19,4 +19,5 @@ public class Seller {
     private Float unpaid;
     private Float paid;
     private String invite_code;
+    private Float sharing_ratio;
 }
