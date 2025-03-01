@@ -1,6 +1,7 @@
 package com.jeffrey.onlinestorebe.service.serviceImpl;
 
 import com.jeffrey.onlinestorebe.entity.goodsEntity.Good;
+import com.jeffrey.onlinestorebe.entity.previewPhotoEntity.PreviewPhoto;
 import com.jeffrey.onlinestorebe.mapper.GoodMapper;
 import com.jeffrey.onlinestorebe.mapper.PreviewPhotoMapper;
 import com.jeffrey.onlinestorebe.service.GoodService;
@@ -30,13 +31,15 @@ public class GoodServiceImpl implements GoodService {
             Boolean goodRes = goodMapper.addGood(good);
             Boolean flag = true;
             good.getPreviewImage().forEach(item ->{
-                previewPhotoMapper.insertPreviewPhoto(UUID.randomUUID().toString(),good.getId(),UUID.randomUUID().toString());
+                previewPhotoMapper.insertPreviewPhoto(UUID.randomUUID().toString(), good.getId(),item);
             });
             if(goodRes) {
-                return new Result<>(200, "商品增加成功", goodMapper.getGoodByTitle(good.getTitle()).get(0));
+                return new Result<>(200, "商品增加成功", goodMapper.getGoodById(good.getId()));
             }
         }
         catch (Exception e){
+            goodMapper.deleteGood(good.getId());
+            previewPhotoMapper.deletePreviewPhoto(good.getId());
             return new Result<>(400, "商品增加失败", null);
         }
         return new Result<>(400, "商品增加失败", null);
@@ -45,6 +48,7 @@ public class GoodServiceImpl implements GoodService {
     @Override
     public Result<Good> deleteGood(String id) {
         Good deleteGood = goodMapper.getGoodById(id);
+        previewPhotoMapper.deletePreviewPhoto(deleteGood.getId());
         Boolean goodRes = goodMapper.deleteGood(id);
         if(goodRes) {
             return new Result<>(200, "商品删除成功", deleteGood);
@@ -57,7 +61,12 @@ public class GoodServiceImpl implements GoodService {
         if(good.getId() == null){
             return new Result<>(400, "未传递商品id", null);
         }
-        Boolean goodRes = goodMapper.updateGood(good);
+        Boolean goodRes = goodMapper.updateGood(good);  //更新商品主体信息
+        previewPhotoMapper.deletePreviewPhoto(good.getId());    //删除商品原先图片
+        good.getPreviewImage().forEach(item->{  //插入商品图片
+            previewPhotoMapper.insertPreviewPhoto(UUID.randomUUID().toString(),item, good.getId());
+        });
+
         if(goodRes) {
             return new Result<>(200, "商品更新成功", good);
         }
@@ -67,6 +76,9 @@ public class GoodServiceImpl implements GoodService {
     @Override
     public Result<Good> getGoodById(String id) {
         Good goodRes = goodMapper.getGoodById(id);
+
+        List<PreviewPhoto> goodPreviewPhoto = previewPhotoMapper.selectPreviewPhotoByGoodId(id);
+        goodRes.setPreviewImage(goodPreviewPhoto);
         if(goodRes != null) {
             return new Result<>(200, "商品获取成功", goodRes);
         }

@@ -8,13 +8,13 @@ import java.util.List;
 @Mapper
 public interface GoodMapper {
 
-    @Insert("insert into goods (id,title,price,content,photo) values (#{id},#{title}, #{price},#{content}, #{photo})")
+    @Insert("insert into goods (id,title,price,content) values (#{id},#{title}, #{price},#{content})")
     Boolean addGood(Good good);
 
     @Delete("delete from goods where id = #{id}")
     Boolean deleteGood(String id);
 
-    @Update("update goods set title = #{title}, price = #{price}, content = #{content}, photo = #{photo} where id = #{id}")
+    @Update("update goods set title = #{title}, price = #{price}, content = #{content} where id = #{id}")
     Boolean updateGood(Good good);
 
     @Select("select * from goods where id = #{id} LIMIT 1")
