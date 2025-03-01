@@ -2,6 +2,7 @@ package com.jeffrey.onlinestorebe.service.serviceImpl;
 
 import com.jeffrey.onlinestorebe.entity.goodsEntity.Good;
 import com.jeffrey.onlinestorebe.mapper.GoodMapper;
+import com.jeffrey.onlinestorebe.mapper.PreviewPhotoMapper;
 import com.jeffrey.onlinestorebe.service.GoodService;
 import com.jeffrey.onlinestorebe.utils.Result;
 import jakarta.annotation.Resource;
@@ -16,16 +17,27 @@ public class GoodServiceImpl implements GoodService {
     @Resource
     private GoodMapper goodMapper;
 
+    @Resource
+    private PreviewPhotoMapper previewPhotoMapper;
 
     @Override
     public Result<Good> addGood(Good good) {
         if (!goodMapper.getGoodByTitle(good.getTitle()).isEmpty()) {
             return new Result<>(400, "商品已存在", null);
         }
-        good.setId(UUID.randomUUID().toString());
-        Boolean goodRes = goodMapper.addGood(good);
-        if(goodRes) {
-            return new Result<>(200, "商品增加成功", goodMapper.getGoodByTitle(good.getTitle()).get(0));
+        try{
+            good.setId(UUID.randomUUID().toString());
+            Boolean goodRes = goodMapper.addGood(good);
+            Boolean flag = true;
+            good.getPreviewImage().forEach(item ->{
+                previewPhotoMapper.insertPreviewPhoto(UUID.randomUUID().toString(),good.getId(),UUID.randomUUID().toString());
+            });
+            if(goodRes) {
+                return new Result<>(200, "商品增加成功", goodMapper.getGoodByTitle(good.getTitle()).get(0));
+            }
+        }
+        catch (Exception e){
+            return new Result<>(400, "商品增加失败", null);
         }
         return new Result<>(400, "商品增加失败", null);
     }

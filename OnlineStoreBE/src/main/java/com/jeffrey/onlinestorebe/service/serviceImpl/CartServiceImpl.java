@@ -18,6 +18,9 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public Result<Cart> addCart(Cart cart) {
+        if(cart.getNumber() <= 0){
+            return new Result<Cart>(400, "商品数量小于0", null);
+        }
         if (!cartMapper.itemExist(cart).isEmpty()) {
             return addItem(cart);
         }
