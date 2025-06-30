@@ -19,10 +19,7 @@
     <view class="orderManage">
       <text>订单管理</text>
       <t-grid class="block">
-        <t-grid-item text="待付款" icon="wallet"/>
-        <t-grid-item text="待发货" icon="flight-takeoff" bindclick="onClick" />
-        <t-grid-item text="待收货" icon="bookmark-checked" bindclick="onClick" />
-        <t-grid-item text="所有订单" icon="task" bindclick="onClick" />
+        <t-grid-item text="{{paymentList[index].text}}" icon="{{paymentList[index].icon}}" bindclick="{{paymentList[index].bindClick}}" wx:for="{{paymentList}}"/>
       </t-grid>
     </view>
   </view>

@@ -5,62 +5,82 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    currentText:"",
+    currentTab: 0,
+    orders: [
+      {
+        id: 1,
+        imgUrl: '/images/goods1.jpg',
+        title: '商品A',
+        desc: '描述A',
+        status: '待付款'
+      },
+      {
+        id: 2,
+        imgUrl: '/images/goods2.jpg',
+        title: '商品B',
+        desc: '描述B',
+        status: '待发货'
+      },
+      {
+        id: 3,
+        imgUrl: '/images/goods3.jpg',
+        title: '商品C',
+        desc: '描述C',
+        status: '已完成'
+      }
+    ],
+    tabStatus: ['全部订单', '待付款', '待发货', '已完成'],
+    filteredOrders: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad(options) {
-
+  saveCurrentText(data){
+    this.setData({currentText,data})
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
+  onLoad() {
+    // console.log(option.query)
+    const eventChannel = this.getOpenerEventChannel()
+    // eventChannel.emit('acceptDataFromOpenedPage', {data: 'test'});
+    // eventChannel.emit('someEvent', {data: 'test'});
+    // 监听acceptDataFromOpenerPage事件，获取上一页面通过eventChannel传送到当前页面的数据
+    eventChannel.on('acceptDataFromOpenerPage', (data) => {
+      console.log(data.data)
+      target_index = 0
+      for(let i =0;i<=3;i++){
+        if(data.data == tabStatus[index]){
+          target_index = index
+        }
+      }
+      this.setData({ currentTab: target_index });
+    })
+    this.updateFilteredOrders(this.data.currentTab);
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
+  onClickLeft() {
+    wx.showToast({ title: '点击返回', icon: 'none' });
+    wx.navigateBack({
+    })
+  },
+  onTabChange(event) {
+    console.log(event.detail)
+    const currentTab = event.detail.index;
+    this.setData({
+      currentTab
+    });
+    this.updateFilteredOrders(currentTab);
+  },
+  updateFilteredOrders(currentTab) {
+    const { orders, tabStatus } = this.data;
+    let filteredOrders;
+    if (currentTab === 0) {
+      filteredOrders = orders;
+    } else {
+      filteredOrders = orders.filter(order => order.status === tabStatus[currentTab]);
+    }
+    this.setData({
+      filteredOrders
+    });
+  },
   onShow() {
-
+    this.updateFilteredOrders(this.data.currentTab);
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
-
-  }
 })

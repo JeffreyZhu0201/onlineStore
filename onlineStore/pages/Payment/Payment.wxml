@@ -1,2 +1,22 @@
 <!--pages/Payment/Payment.wxml-->
-<text>pages/Payment/Payment.wxml</text>
+<van-nav-bar
+  title="我的"
+  fixed
+  left-text="返回"
+  left-arrow
+  placeholder
+  bind:click-left="onClickLeft"
+/>
+<van-tabs active="{{currentTab}}" bind:change="onTabChange">
+  <van-tab title="{{tabStatus[index]}}" wx:for="{{tabStatus}}"/>
+</van-tabs>
+<block wx:for="{{filteredOrders}}" wx:key="id">
+  <view class="order-card">
+    <image class="order-img" src="{{item.imgUrl}}" mode="aspectFill"></image>
+    <view class="order-info">
+      <view class="order-title">{{item.title}}</view>
+      <view class="order-desc">{{item.desc}}</view>
+      <view class="order-status">{{item.status}}</view>
+    </view>
+  </view>
+</block>
